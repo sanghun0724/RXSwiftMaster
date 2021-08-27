@@ -13,16 +13,17 @@
 		B60F4E0826C8E40C00CDAD5B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B60F4E0626C8E40C00CDAD5B /* Main.storyboard */; };
 		B60F4E0A26C8E40F00CDAD5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B60F4E0926C8E40F00CDAD5B /* Assets.xcassets */; };
 		B60F4E0D26C8E40F00CDAD5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B60F4E0B26C8E40F00CDAD5B /* LaunchScreen.storyboard */; };
-		B60F4E1A26C8E4D600CDAD5B /* CollectionVIewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60F4E1926C8E4D600CDAD5B /* CollectionVIewCell.swift */; };
-		B60F4E1E26C8E4E200CDAD5B /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60F4E1D26C8E4E200CDAD5B /* TableViewCell.swift */; };
+		B60F4E1A26C8E4D600CDAD5B /* TimelineCollectionVIewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60F4E1926C8E4D600CDAD5B /* TimelineCollectionVIewCell.swift */; };
+		B60F4E1E26C8E4E200CDAD5B /* TimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60F4E1D26C8E4E200CDAD5B /* TimelineTableViewCell.swift */; };
 		B60F4E2126C8E4F100CDAD5B /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60F4E2026C8E4F100CDAD5B /* Content.swift */; };
 		B60F4E2926C8E5C700CDAD5B /* 3.m4v in Resources */ = {isa = PBXBuildFile; fileRef = B60F4E2826C8E5C700CDAD5B /* 3.m4v */; };
 		B60F4E2F26C8E5D200CDAD5B /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B60F4E2C26C8E5D200CDAD5B /* 2.jpg */; };
 		B60F4E3026C8E5D200CDAD5B /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B60F4E2D26C8E5D200CDAD5B /* 1.jpg */; };
 		B60F4E3126C8E5D200CDAD5B /* 0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B60F4E2E26C8E5D200CDAD5B /* 0.jpg */; };
-		B60F4E3726C8E68100CDAD5B /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60F4E3626C8E68100CDAD5B /* TableViewController.swift */; };
 		B60F4E3A26C8E82900CDAD5B /* TimelineContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60F4E3926C8E82900CDAD5B /* TimelineContent.swift */; };
 		B666AF2E26D8A0A50029C89A /* ProtocolExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B666AF2D26D8A0A50029C89A /* ProtocolExtension.swift */; };
+		B666AF3226D8C7730029C89A /* TimelineCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B666AF3126D8C7730029C89A /* TimelineCollectionViewController.swift */; };
+		B666AF3526D8C7850029C89A /* TimelineTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B666AF3426D8C7850029C89A /* TimelineTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,16 +35,17 @@
 		B60F4E0926C8E40F00CDAD5B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B60F4E0C26C8E40F00CDAD5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B60F4E0E26C8E40F00CDAD5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B60F4E1926C8E4D600CDAD5B /* CollectionVIewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionVIewCell.swift; sourceTree = "<group>"; };
-		B60F4E1D26C8E4E200CDAD5B /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		B60F4E1926C8E4D600CDAD5B /* TimelineCollectionVIewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineCollectionVIewCell.swift; sourceTree = "<group>"; };
+		B60F4E1D26C8E4E200CDAD5B /* TimelineTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineTableViewCell.swift; sourceTree = "<group>"; };
 		B60F4E2026C8E4F100CDAD5B /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
 		B60F4E2826C8E5C700CDAD5B /* 3.m4v */ = {isa = PBXFileReference; lastKnownFileType = file; path = 3.m4v; sourceTree = "<group>"; };
 		B60F4E2C26C8E5D200CDAD5B /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
 		B60F4E2D26C8E5D200CDAD5B /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		B60F4E2E26C8E5D200CDAD5B /* 0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 0.jpg; sourceTree = "<group>"; };
-		B60F4E3626C8E68100CDAD5B /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		B60F4E3926C8E82900CDAD5B /* TimelineContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineContent.swift; sourceTree = "<group>"; };
 		B666AF2D26D8A0A50029C89A /* ProtocolExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProtocolExtension.swift; sourceTree = "<group>"; };
+		B666AF3126D8C7730029C89A /* TimelineCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineCollectionViewController.swift; sourceTree = "<group>"; };
+		B666AF3426D8C7850029C89A /* TimelineTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +96,8 @@
 		B60F4E1526C8E41D00CDAD5B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B60F4E1926C8E4D600CDAD5B /* CollectionVIewCell.swift */,
-				B60F4E1D26C8E4E200CDAD5B /* TableViewCell.swift */,
+				B60F4E1926C8E4D600CDAD5B /* TimelineCollectionVIewCell.swift */,
+				B60F4E1D26C8E4E200CDAD5B /* TimelineTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -104,7 +106,8 @@
 			isa = PBXGroup;
 			children = (
 				B60F4E0426C8E40C00CDAD5B /* MainNavigatorController.swift */,
-				B60F4E3626C8E68100CDAD5B /* TableViewController.swift */,
+				B666AF3126D8C7730029C89A /* TimelineCollectionViewController.swift */,
+				B666AF3426D8C7850029C89A /* TimelineTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -220,13 +223,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B60F4E1A26C8E4D600CDAD5B /* CollectionVIewCell.swift in Sources */,
-				B60F4E3726C8E68100CDAD5B /* TableViewController.swift in Sources */,
+				B60F4E1A26C8E4D600CDAD5B /* TimelineCollectionVIewCell.swift in Sources */,
 				B60F4E3A26C8E82900CDAD5B /* TimelineContent.swift in Sources */,
+				B666AF3526D8C7850029C89A /* TimelineTableViewController.swift in Sources */,
 				B60F4E2126C8E4F100CDAD5B /* Content.swift in Sources */,
 				B60F4E0526C8E40C00CDAD5B /* MainNavigatorController.swift in Sources */,
+				B666AF3226D8C7730029C89A /* TimelineCollectionViewController.swift in Sources */,
 				B60F4E0126C8E40C00CDAD5B /* AppDelegate.swift in Sources */,
-				B60F4E1E26C8E4E200CDAD5B /* TableViewCell.swift in Sources */,
+				B60F4E1E26C8E4E200CDAD5B /* TimelineTableViewCell.swift in Sources */,
 				B666AF2E26D8A0A50029C89A /* ProtocolExtension.swift in Sources */,
 				B60F4E0326C8E40C00CDAD5B /* SceneDelegate.swift in Sources */,
 			);
