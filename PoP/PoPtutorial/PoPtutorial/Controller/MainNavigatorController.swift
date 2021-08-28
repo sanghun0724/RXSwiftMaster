@@ -60,7 +60,17 @@ class MainNavigatorController:UINavigationController {
             if let collectionController = collectionViewController {
                 rootViewController = collectionController
             } else {
-                print("Empty")
+                var cellSize:CGSize = (UIApplication.shared.windows.first?.bounds.size)! //check
+                
+                cellSize.width /= 3.0
+                cellSize.width -= 10
+                
+                cellSize.height = cellSize.width + 30
+                
+                let flowLayout:UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+                flowLayout.itemSize = cellSize
+                
+                collectionViewController = TimelineCollectionViewController(collectionViewLayout: flowLayout)
             }
             rootViewController = collectionViewController
         }

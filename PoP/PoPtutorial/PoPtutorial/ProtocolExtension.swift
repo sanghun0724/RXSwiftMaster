@@ -106,3 +106,16 @@ extension ContainContents {
         return contents.count
     }
 }
+
+protocol CanShowDetailView {
+    func showDetailView(content:Content)
+    var navigationController:UINavigationController? { get }
+}
+
+extension CanShowDetailView {
+    func showDetailView(content:Content) {
+        let detailViewController:DetailViewController = DetailViewController()
+        detailViewController.content = content
+        self.navigationController!.pushViewController(detailViewController, animated: true)
+    }
+}

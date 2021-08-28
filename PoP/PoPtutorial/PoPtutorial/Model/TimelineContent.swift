@@ -22,7 +22,7 @@ class TimelineContentObject {
             
             if let path:String = Bundle.main.path(forResource: "\(i)", ofType: "jpg") {
                 content = Content(type: .image, URLString: path, note: notes[i])
-            } else if let path:String = Bundle.main.path(forResource: "\(i)", ofType: "mv4") {
+            } else if let path:String = Bundle.main.path(forResource: "\(i)", ofType: "m4v") {
                 content = Content(type: .video, URLString: path, note: notes[i])
             }
             

@@ -8,7 +8,8 @@
 import UIKit
 let timelineTitle = "Timeline"
 
-class TimelineTableViewController:UITableViewController,ContainContents {
+class TimelineTableViewController:UITableViewController,ContainContents ,CanShowDetailView {
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,8 +39,9 @@ class TimelineTableViewController:UITableViewController,ContainContents {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        showDetailView(content: contents[indexPath.row])
     }
+    
     
     
 }
