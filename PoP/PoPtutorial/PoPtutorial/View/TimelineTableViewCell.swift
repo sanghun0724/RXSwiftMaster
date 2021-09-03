@@ -8,7 +8,7 @@
 import UIKit
 import AVFoundation
 
-class TimelineTableViewCell:UITableViewCell,MediaContainer {
+class TimelineTableViewCell:UITableViewCell,MediaContainer {/// MediaContainer 채택함으로써 contentChanged() 사용가능 
     //MARK: Properties
     var note: UILabel = UILabel()
     var videoLayer: AVPlayerLayer = AVPlayerLayer()

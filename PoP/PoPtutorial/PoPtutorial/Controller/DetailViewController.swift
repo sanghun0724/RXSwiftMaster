@@ -8,9 +8,10 @@
 import UIKit
 import AVFoundation
 
-class DetailViewController:UIViewController,MediaContainer {
+class DetailViewController:UIViewController,MediaContainer,UITextFieldDelegate {
     lazy var videoLayer: AVPlayerLayer = AVPlayerLayer()
     lazy var mediaImageView: UIImageView = UIImageView()
+   
     
     var note:UILabel = UILabel()
     
@@ -37,8 +38,8 @@ class DetailViewController:UIViewController,MediaContainer {
         var noteFrame:CGRect = self.view.bounds
         noteFrame.origin.y = noteFrame.height / 2 + 200//check please
         noteFrame.size.height = 50
-        print(noteFrame)
-        
+        print(media)
+        print("checkcheck")
         note.layout(in: noteFrame)
         note.textAlignment = .center
         note.font = UIFont.systemFont(ofSize: 30)
@@ -60,5 +61,11 @@ class DetailViewController:UIViewController,MediaContainer {
             self.videoLayer.player?.pause()
             self.videoLayer.player = nil
         }
+    }
+}
+
+extension UITextFieldDelegate {
+    @objc func textFieldDidEndEditing(_ textField: UITextField) {
+        print("hi")
     }
 }

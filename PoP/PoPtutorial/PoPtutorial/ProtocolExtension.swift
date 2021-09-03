@@ -119,3 +119,4 @@ extension CanShowDetailView {
         self.navigationController!.pushViewController(detailViewController, animated: true)
     }
 }
+

@@ -91,7 +91,5 @@ class MainNavigatorController:UINavigationController {
             listViewMode = .Table
         }
     }
-    
-    
 }
 
