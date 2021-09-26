@@ -10,6 +10,7 @@ import RxSwift
 import RxCocoa
 import SwiftyJSON
 
+
 class ApiController {
     
     struct Weather {
@@ -27,16 +28,23 @@ class ApiController {
     /// the shared instance
     static var shared = ApiController()
     
-    private let apiKey = "my key"
+    private let apiKey = "ab4674ad07db87cfe9298be194bfd6b7"
     
-    let baseURL = URL(string: "")
+    let baseURL = URL(string: "http://api.openweathermap.org/data/2.5")
     
-    init() {
-        
-    }
+//    init() {
+//
+//        }
     
+    ///http://api.openweathermap.org/data/2.5/weather?q={city name}
     func currentWeather(city:String) -> Observable<Weather> {
-        return Observable.just(Weather(cityName: city, temperature: 20, humidity: 90, icon: iconNameToChar(icon: "01d")))
+        return buildRequest(pathComponent: "weather", params: [("q",city)])
+            .map{ json in
+                return Weather(cityName: json["name"].string ?? "UnKnown",
+                               temperature: json["main"]["temp"].int ?? -1000,
+                               humidity: json["main"]["humidity"].int ?? 0,
+                               icon: iconNameToChar(icon: json["weather"][0]["icon"].string ?? "e"))
+            }
     }
     
     //MARK: Private Methods
@@ -49,7 +57,7 @@ class ApiController {
         var request = URLRequest(url: url)
         let keyQueryItem = URLQueryItem(name: "appid", value: apiKey)
         let unitsQueryItem = URLQueryItem(name: "units", value: "metric")
-        let urlComponents = NSURLComponents(url: url, resolvingAgainstBaseURL: true)!
+        var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true)!
         
         if method == "GET" {
             var queryItems = params.map {
@@ -64,21 +72,16 @@ class ApiController {
             let jsonData = try! JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
             request.httpBody = jsonData
         }
+        request.url = urlComponents.url!
+        request.httpMethod = method
         
+        request.setValue("aplication/json", forHTTPHeaderField: "Content-Type")
         
+        let session = URLSession.shared
+        
+        return session.rx.data(request: request).map{ try! JSON(data: $0) }
+        // session으로 Observable<Data>를 반한하게 되고 map을 통해 JSon 타입으로 다시 바뀜
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }
     
     

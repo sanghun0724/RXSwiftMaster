@@ -58,6 +58,7 @@
 			children = (
 				B62E5928270050DD00608D87 /* RxWeatherApp */,
 				B62E5927270050DD00608D87 /* Products */,
+				B62E595A2700B7EC00608D87 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,6 +110,13 @@
 				B62E594A2700549D00608D87 /* Appreance.swift */,
 			);
 			path = Utills;
+			sourceTree = "<group>";
+		};
+		B62E595A2700B7EC00608D87 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,10 +350,12 @@
 		B62E593B270050F000608D87 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2L2K3UD2LK;
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				INFOPLIST_FILE = RxWeatherApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -361,10 +371,12 @@
 		B62E593C270050F000608D87 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2L2K3UD2LK;
+				ENABLE_TESTING_SEARCH_PATHS = YES;
 				INFOPLIST_FILE = RxWeatherApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

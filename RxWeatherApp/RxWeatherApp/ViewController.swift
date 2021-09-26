@@ -37,7 +37,7 @@ class ViewController: UIViewController {
             .filter { ($0 ?? "").count > 0 }
             .flatMapLatest{ text in
                 return ApiController.shared.currentWeather(city: text ?? "Error")
-                    .catchAndReturn(ApiController.Weather.empty) //에러 받아도 빈값을 방출하도록 설정 (중단되면안되니)
+                     .catchAndReturn(ApiController.Weather.empty) //에러 받아도 빈값을 방출하도록 설정 (중단되면안되니)
             }
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { data in
