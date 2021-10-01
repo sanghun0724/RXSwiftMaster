@@ -16,12 +16,18 @@ class ViewController: UIViewController {
    @IBOutlet weak var humidityLabel: UILabel!
    @IBOutlet weak var iconLabel: UILabel!
    @IBOutlet weak var cityNameLabel: UILabel!
+    @IBOutlet weak var indicaitorView:UIActivityIndicatorView!
     
     let bag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         style()
+        
+        let searchInput = searchCityName.rx.controlEvent(.editingDidEndOnExit).asObservable()
+            .map{ self.searchCityName.text}
+            .filter{ ($0 ?? "").count > 0 }
+        
         
         ApiController.shared.currentWeather(city: "RxSwift")
             .observe(on: MainScheduler.instance)
@@ -33,12 +39,31 @@ class ViewController: UIViewController {
             })
             .disposed(by: bag)//이는 뷰컨의 릴리즈 여부에 따라 구독을 취소/dispose하게 된다. 리소스 낭비를 막아줄뿐 아니라 예측하짐 못했던 이벤트 발생 또는 다른 부수작용들이 구독을 dispose하지않아 발생되지 않도록 막아준다.
         
-        let search = searchCityName.rx.controlEvent(.editingDidEndOnExit).asObservable()
-            .map { self.searchCityName.text } //이제 search를 탭했을때만 text가져오고 apiRequest (수시로 가져오지않고 )
-            .flatMapLatest{ text in
+        //이제 search를 탭했을때만 text가져오고 apiRequest (수시로 가져오지않고 )
+        let search = searchInput
+            .flatMap { text in
                 return ApiController.shared.currentWeather(city: text ?? "Error")
             }
             .asDriver(onErrorJustReturn: ApiController.Weather.empty) //Observable -> driver
+        
+        let running = Observable.from([
+            searchInput.map{ _ in true },
+            search.map { _ in false }.asObservable()
+        ])
+        .merge()
+        .startWith(true) //observabel에 true요소 먼저하나 추가 시작하고 시작
+        .asDriver(onErrorJustReturn: false)
+        //true면 보여지고 false면 indicator stop
+        
+        
+       let _ = running.asObservable().subscribe(onNext: { print($0)})
+        
+        running
+            .skip(1)
+            .drive(indicaitorView.rx.isAnimating)
+            .disposed(by: bag)
+        
+        
         
         search.map { "\($0.temperature)C"}
             .drive(tempLabel.rx.text) //bindTo -> drive
@@ -55,6 +80,23 @@ class ViewController: UIViewController {
         search.map {"\($0.icon)" }
             .drive(iconLabel.rx.text)
             .disposed(by: bag)
+        
+        running
+            .drive(tempLabel.rx.isHidden)
+            .disposed(by: bag)
+        
+        running
+            .drive(humidityLabel.rx.isHidden)
+            .disposed(by: bag)
+        
+        running
+            .drive(iconLabel.rx.isHidden)
+            .disposed(by: bag)
+        
+        running
+            .drive(cityNameLabel.rx.isHidden)
+            .disposed(by: bag)
+        
         
         searchCityName.keyboardType = .asciiCapable
     }

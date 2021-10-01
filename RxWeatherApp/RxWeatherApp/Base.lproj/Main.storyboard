@@ -57,6 +57,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="QUO-9U-RsW">
+                                <rect key="frame" x="107" y="348" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="0GJ-nl-jFN"/>
+                                    <constraint firstAttribute="height" constant="200" id="IfV-Nh-BGK"/>
+                                </constraints>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="QV7-Xp-KGm"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -69,10 +77,12 @@
                             <constraint firstItem="5nK-hh-kZi" firstAttribute="leading" secondItem="IXX-VN-9MS" secondAttribute="leading" id="et7-yU-LNQ"/>
                             <constraint firstItem="zqC-2m-5YI" firstAttribute="trailing" secondItem="IXX-VN-9MS" secondAttribute="trailing" id="gJZ-rp-u9V"/>
                             <constraint firstItem="IXX-VN-9MS" firstAttribute="leading" secondItem="L40-jB-lIT" secondAttribute="leading" constant="32" id="hD7-25-2I9"/>
+                            <constraint firstItem="QUO-9U-RsW" firstAttribute="centerX" secondItem="L40-jB-lIT" secondAttribute="centerX" id="jRg-QK-nGj"/>
                             <constraint firstAttribute="trailingMargin" secondItem="aET-Mn-Wjo" secondAttribute="trailing" id="jgh-mb-JRe"/>
                             <constraint firstItem="IXX-VN-9MS" firstAttribute="top" secondItem="zqC-2m-5YI" secondAttribute="bottom" constant="8" id="mth-s6-O5Z"/>
                             <constraint firstItem="IXX-VN-9MS" firstAttribute="centerX" secondItem="L40-jB-lIT" secondAttribute="centerX" id="nmH-92-gKX"/>
                             <constraint firstAttribute="trailing" secondItem="IXX-VN-9MS" secondAttribute="trailing" constant="32" id="osk-af-JzO"/>
+                            <constraint firstItem="QUO-9U-RsW" firstAttribute="centerY" secondItem="L40-jB-lIT" secondAttribute="centerY" id="pEv-S8-5dn"/>
                             <constraint firstItem="LHZ-ro-1VU" firstAttribute="top" secondItem="IXX-VN-9MS" secondAttribute="bottom" constant="8" id="ue5-y7-Wdn"/>
                             <constraint firstItem="IXX-VN-9MS" firstAttribute="centerY" secondItem="L40-jB-lIT" secondAttribute="centerY" constant="20" id="wkb-JM-hfe"/>
                         </constraints>
@@ -81,6 +91,7 @@
                         <outlet property="cityNameLabel" destination="LHZ-ro-1VU" id="iz4-cr-IUO"/>
                         <outlet property="humidityLabel" destination="zqC-2m-5YI" id="iDU-HK-0gC"/>
                         <outlet property="iconLabel" destination="IXX-VN-9MS" id="Stk-zq-bNB"/>
+                        <outlet property="indicaitorView" destination="QUO-9U-RsW" id="TOr-Ya-iqV"/>
                         <outlet property="searchCityName" destination="aET-Mn-Wjo" id="rel-8F-df5"/>
                         <outlet property="tempLabel" destination="5nK-hh-kZi" id="tm5-eY-VoF"/>
                     </connections>
