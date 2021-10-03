@@ -21,6 +21,7 @@
 		B62E59512700564900608D87 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B62E59502700564900608D87 /* RxSwift */; };
 		B62E59532700564900608D87 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = B62E59522700564900608D87 /* RxCocoa */; };
 		B62E59582700680F00608D87 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = B62E59572700680F00608D87 /* SwiftyJSON */; };
+		B66DFD35270A04FF009F3B37 /* RxMKMapViewDelegatePoxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66DFD34270A04FF009F3B37 /* RxMKMapViewDelegatePoxy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		B62E59442700532A00608D87 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		B62E59472700548400608D87 /* ApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiController.swift; sourceTree = "<group>"; };
 		B62E594A2700549D00608D87 /* Appreance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appreance.swift; sourceTree = "<group>"; };
+		B66DFD34270A04FF009F3B37 /* RxMKMapViewDelegatePoxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxMKMapViewDelegatePoxy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				B62E5932270050F000608D87 /* Assets.xcassets */,
 				B62E5934270050F000608D87 /* LaunchScreen.storyboard */,
 				B62E5937270050F000608D87 /* Info.plist */,
+				B66DFD34270A04FF009F3B37 /* RxMKMapViewDelegatePoxy.swift */,
 			);
 			path = RxWeatherApp;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 				B62E592E270050DD00608D87 /* ViewController.swift in Sources */,
 				B62E59452700532A00608D87 /* Colors.swift in Sources */,
 				B62E59482700548400608D87 /* ApiController.swift in Sources */,
+				B66DFD35270A04FF009F3B37 /* RxMKMapViewDelegatePoxy.swift in Sources */,
 				B62E592A270050DD00608D87 /* AppDelegate.swift in Sources */,
 				B62E592C270050DD00608D87 /* SceneDelegate.swift in Sources */,
 				B62E594B2700549D00608D87 /* Appreance.swift in Sources */,

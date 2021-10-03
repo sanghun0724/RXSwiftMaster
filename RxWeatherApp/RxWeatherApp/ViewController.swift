@@ -47,8 +47,8 @@ class ViewController: UIViewController {
             .asDriver(onErrorJustReturn: ApiController.Weather.empty) //Observable -> driver
         
         let running = Observable.from([
-            searchInput.map{ _ in true },
-            search.map { _ in false }.asObservable()
+            searchInput.map{ _ in true }, //seacrchTextField에 뭔가를 입력하고 누르면  true로 나타나고 animation시작
+            search.map { _ in false }.asObservable() //search에서 값을 받아오면 false 호출 그러면 animation 종료
         ])
         .merge()
         .startWith(true) //observabel에 true요소 먼저하나 추가 시작하고 시작
@@ -56,7 +56,13 @@ class ViewController: UIViewController {
         //true면 보여지고 false면 indicator stop
         
         
-       let _ = running.asObservable().subscribe(onNext: { print($0)})
+       let _ = running.asObservable().subscribe(onNext: {
+        if $0 == true {
+            print("this is true")
+        } else {
+            print("false")
+        }
+       })
         
         running
             .skip(1)
@@ -122,8 +128,8 @@ class ViewController: UIViewController {
       // Dispose of any resources that can be recreated.
     }
 
+    
     // MARK: - Style
-
     private func style() {
       view.backgroundColor = UIColor.black
       searchCityName.textColor = UIColor.ufoGreen
@@ -132,7 +138,6 @@ class ViewController: UIViewController {
       iconLabel.textColor = UIColor.cream
       cityNameLabel.textColor = UIColor.cream
     }
-
 }
 
 
