@@ -22,6 +22,7 @@
 		B62E59532700564900608D87 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = B62E59522700564900608D87 /* RxCocoa */; };
 		B62E59582700680F00608D87 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = B62E59572700680F00608D87 /* SwiftyJSON */; };
 		B66DFD35270A04FF009F3B37 /* RxMKMapViewDelegatePoxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B66DFD34270A04FF009F3B37 /* RxMKMapViewDelegatePoxy.swift */; };
+		B69A291C270B296100956510 /* RxCLLocationManagerDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69A291B270B296100956510 /* RxCLLocationManagerDelegateProxy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		B62E59472700548400608D87 /* ApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiController.swift; sourceTree = "<group>"; };
 		B62E594A2700549D00608D87 /* Appreance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appreance.swift; sourceTree = "<group>"; };
 		B66DFD34270A04FF009F3B37 /* RxMKMapViewDelegatePoxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxMKMapViewDelegatePoxy.swift; sourceTree = "<group>"; };
+		B69A291B270B296100956510 /* RxCLLocationManagerDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxCLLocationManagerDelegateProxy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 		B62E5928270050DD00608D87 /* RxWeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				B69A291E270B338D00956510 /* Extension */,
 				B62E59432700531B00608D87 /* Utills */,
 				B62E593F270052BB00608D87 /* Controllers */,
 				B62E593E270052AE00608D87 /* Assets */,
@@ -85,7 +88,6 @@
 				B62E5932270050F000608D87 /* Assets.xcassets */,
 				B62E5934270050F000608D87 /* LaunchScreen.storyboard */,
 				B62E5937270050F000608D87 /* Info.plist */,
-				B66DFD34270A04FF009F3B37 /* RxMKMapViewDelegatePoxy.swift */,
 			);
 			path = RxWeatherApp;
 			sourceTree = "<group>";
@@ -120,6 +122,15 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B69A291E270B338D00956510 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B66DFD34270A04FF009F3B37 /* RxMKMapViewDelegatePoxy.swift */,
+				B69A291B270B296100956510 /* RxCLLocationManagerDelegateProxy.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,6 +217,7 @@
 				B62E592E270050DD00608D87 /* ViewController.swift in Sources */,
 				B62E59452700532A00608D87 /* Colors.swift in Sources */,
 				B62E59482700548400608D87 /* ApiController.swift in Sources */,
+				B69A291C270B296100956510 /* RxCLLocationManagerDelegateProxy.swift in Sources */,
 				B66DFD35270A04FF009F3B37 /* RxMKMapViewDelegatePoxy.swift in Sources */,
 				B62E592A270050DD00608D87 /* AppDelegate.swift in Sources */,
 				B62E592C270050DD00608D87 /* SceneDelegate.swift in Sources */,
