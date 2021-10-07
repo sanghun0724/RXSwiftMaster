@@ -33,7 +33,7 @@ class ApiController {
                                temperature: json["main"]["temp"].int ?? -1000,
                                humidity: json["main"]["humidity"].int ?? 0,
                                icon: iconNameToChar(icon: json["weather"][0]["icon"].string ?? "e"),
-                               lat: json["coordi"]["lat"].double ?? 0,
+                               lat: json["coord"]["lat"].double ?? 0,
                                lon: json["coord"]["lon"].double ?? 0
                 )
             }
@@ -46,7 +46,7 @@ class ApiController {
                 temperature: json["main"]["temp"].int ?? -1000,
                 humidity: json["main"]["humidity"].int ?? 0,
                 icon: iconNameToChar(icon: json["weather"][0]["icon"].string ?? "e"),
-                lat: json["coordi"]["lat"].double ?? 0,
+                lat: json["coord"]["lat"].double ?? 0,
                 lon: json["coord"]["lon"].double ?? 0
             )
         }
@@ -83,6 +83,7 @@ class ApiController {
         request.setValue("aplication/json", forHTTPHeaderField: "Content-Type")
         
         let session = URLSession.shared
+        print(request)
         
         return session.rx.data(request: request).map{ try! JSON(data: $0) }
         // session으로 Observable<Data>를 반한하게 되고 map을 통해 JSon 타입으로 다시 바뀜
@@ -115,7 +116,8 @@ class ApiController {
             let points = coordinates.map { MKMapPoint($0)}
             let rects = points.map { MKMapRect(origin: $0, size: MKMapSize(width: 0, height: 0))}
             let fittingRect = rects.reduce(MKMapRect.null)  { $0.union($1) }
-            
+            print("OverlayfuncWorking@@!!!!")
+            print(coordinate)
             return Overlay(icon: icon, coordinate: coordinate, boundingMapRect: fittingRect)
         }
         
@@ -139,6 +141,7 @@ class ApiController {
                 super.init(overlay: overlay)
             }
             
+           
             public override func draw(_ mapRect: MKMapRect, zoomScale: MKZoomScale, in context: CGContext) {
                 let imageReference = imageFromText(text: overlayIcon as NSString, font: UIFont(name: "Flaticon", size: 32.0)!).cgImage
                 let theMapRect = overlay.boundingMapRect
@@ -188,7 +191,7 @@ class ApiController {
 fileprivate func imageFromText(text: NSString, font:UIFont) -> UIImage {
     let size = text.size(withAttributes: [NSAttributedString.Key.font: font])
     
-    if UIGraphicsBeginImageContextWithOptions != nil {
+    if (UIGraphicsBeginImageContextWithOptions != nil) {
         UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
     } else {
         UIGraphicsBeginImageContext(size)

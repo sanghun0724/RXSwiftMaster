@@ -29,7 +29,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         style()
-        mapView.isHidden = true
+        
+        mapView.rx.setDelegate(self)
+            .disposed(by:bag)
+        
         
         let searchInput = searchCityName.rx.controlEvent(.editingDidEndOnExit).asObservable()
             .map{ self.searchCityName.text}
@@ -92,7 +95,7 @@ class ViewController: UIViewController {
         
         let _ = running.asObservable().subscribe(onNext: { //indicator view test 용
             if $0 == true {
-                print("this is true")
+                print("true")
             } else {
                 print("false")
             }
@@ -145,12 +148,10 @@ class ViewController: UIViewController {
             })
             .disposed(by: bag)
         
-        mapView.rx.setDelegate(self)
-            .disposed(by:bag)
-        
         search.map { [$0.overlay()] }
             .drive(mapView.rx.overlays)
             .disposed(by: bag)
+        
     }
     
     
@@ -189,21 +190,14 @@ class ViewController: UIViewController {
 extension ViewController: MKMapViewDelegate {
     //날씨아이콘을 추가적인 정보없이 지도 위에 그냥 띄우는함수
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-        print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
         if let overlay = overlay as? ApiController.Weather.Overlay {
             let overlayView = ApiController.Weather.OverlayView(overlay: overlay, overlayIcon: overlay.icon)
-            print(overlayView)
+            overlayView.setNeedsDisplay()
             return overlayView
-        } else {
-            fatalError()
         }
         return MKOverlayRenderer()
     }
-    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-        print("it's working @@")
-    }
-    
-    
+
 
 }
 
