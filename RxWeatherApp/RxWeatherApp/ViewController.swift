@@ -33,11 +33,18 @@ class ViewController: UIViewController {
         mapView.rx.setDelegate(self)
             .disposed(by:bag)
         
+        let mapInput = mapView.rx.regionDidChangeAnimated
+            .skip(1)
+            .map { _ in self.mapView.centerCoordinate } //regionDidChangeAnimated에서 나오는 Observable 사용할 코드
         
         let searchInput = searchCityName.rx.controlEvent(.editingDidEndOnExit).asObservable()
             .map{ self.searchCityName.text}
             .filter{ ($0 ?? "").count > 0 }
         
+        let mapSearch = mapInput.flatMap { (coordinate) -> Observable<ApiController.Weather> in
+            return ApiController.shared.currentWeather(lat: coordinate.latitude, lon: coordinate.longitude)
+        }
+    
         
         ApiController.shared.currentWeather(city: "RxSwift")
             .observe(on: MainScheduler.instance)
@@ -76,14 +83,15 @@ class ViewController: UIViewController {
         }
         
         //이제 search를 탭했을때만 text가져오고 apiRequest (수시로 가져오지않고 )
-        let search = Observable.from([geoSearch,textSearch]) //위에 같은 wather타입 반환하는놈들 합쳐주기
+        let search = Observable.from([geoSearch,textSearch,mapSearch]) //위에 같은 wather타입 반환하는놈들 합쳐주기
             .merge()
             .asDriver(onErrorJustReturn: ApiController.Weather.empty)
         
         
         let running = Observable.from([
-            searchInput.map{ _ in true }, //seacrchTextField에 뭔가를 입력하고 누르면  true로 나타나고 animation시작
-            geoInput.map{ _ in true }, //왼쪽아래 Location버튼 누르면 true반환
+            searchInput.map { _ in true }, //seacrchTextField에 뭔가를 입력하고 누르면  true로 나타나고 animation시작
+            geoInput.map { _ in true }, //왼쪽아래 Location버튼 누르면 true반환
+            mapInput.map { _ in true },
             search.map { _ in false }.asObservable() //search에서 값을 받아오면 false 호출 그러면 animation 종료
         ])
         .merge()
@@ -105,8 +113,6 @@ class ViewController: UIViewController {
             .skip(1)
             .drive(indicaitorView.rx.isAnimating)
             .disposed(by: bag)
-        
-        
         
         search.map { "\($0.temperature)C"}
             .drive(tempLabel.rx.text) //bindTo -> drive
@@ -151,6 +157,20 @@ class ViewController: UIViewController {
         search.map { [$0.overlay()] }
             .drive(mapView.rx.overlays)
             .disposed(by: bag)
+        
+        textSearch.asDriver(onErrorJustReturn: ApiController.Weather.empty)
+            .map{ $0.coordinate }
+            .drive(mapView.rx.location) //바인딩!! 값 대입,실행
+            .disposed(by: bag)
+        
+//        mapInput.flatMap { coordinate in
+//            return ApiController.shared.currentWeatherAround(lat: coordinate.latitude, lon: coordinate.longitude)
+//        }
+//        .asDriver(onErrorJustReturn: [])
+//        .map { $0.map{ $0.overlay() }}
+//        .drive(mapView.rx.overlays)
+//        .disposed(by: bag)
+        
         
     }
     
@@ -197,10 +217,7 @@ extension ViewController: MKMapViewDelegate {
         }
         return MKOverlayRenderer()
     }
-
-
 }
-
 
 
 
@@ -237,3 +254,25 @@ extension ViewController: MKMapViewDelegate {
  (다만 raywenderlich는 unwened를 절대 쓰지 말라고 하고 있다)
  */
 
+
+//MARK: Signal!
+// RxSwift 4.0에 추가된 trait  "Signal"
+// it can't fail
+// Events are sharing only when conneceted
+// All events are delivered in the main scheduler
+// 그럼 driver랑 다른게 뭐야 ..
+// -> 바로 구독한 뒤 마지막 이벤트에 대해서는 replay하지 않는다는 것이다.
+// EX) 리소스에 연결했을 떄 , 마지막 이벤트에 대한 replay가 필요한가 ? 를 생각해보자
+
+
+
+
+//MARK: 중요 결론 @@@@
+/*
+ - RxCocoa는 필수적인 라이브러가 아니다. 다만 아주 유용할뿐
+  - 다음과 같은 장점이 있다
+    1. 이미 가장 자주 사용되는 구성 요소에 대해 많은 extension을 가지고 있다.
+    2. 기본 UI 구성요소를 뛰어 넘는다.
+    3. Traits를 사용해서 코드를 안전하게 해준다
+    4. 사용자화한 확장을 만들 수 있는 모든 메커니즘을 제공
+ */
