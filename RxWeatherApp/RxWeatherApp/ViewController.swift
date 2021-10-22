@@ -23,13 +23,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var indicaitorView:UIActivityIndicatorView!
     
+    var cache = [String:ApiController.Weather]()
     let bag = DisposeBag()
     let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         style()
-        
+        self.mapView.isHidden = true
         mapView.rx.setDelegate(self)
             .disposed(by:bag)
         
@@ -39,13 +40,12 @@ class ViewController: UIViewController {
         
         let searchInput = searchCityName.rx.controlEvent(.editingDidEndOnExit).asObservable()
             .map{ self.searchCityName.text}
-            .filter{ ($0 ?? "").count > 0 }
+            .filter{ ($0 ?? "Error@").count > 0 }
         
         let mapSearch = mapInput.flatMap { (coordinate) -> Observable<ApiController.Weather> in
             return ApiController.shared.currentWeather(lat: coordinate.latitude, lon: coordinate.longitude)
         }
     
-        
         ApiController.shared.currentWeather(city: "RxSwift")
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { data in
@@ -80,13 +80,26 @@ class ViewController: UIViewController {
         
         let textSearch = searchInput.flatMap { text in //도시명으로 위치나 정보 가져오는놈
             return ApiController.shared.currentWeather(city: text ?? "Error")
-        }
+                .do(onNext: { data in
+                    if let text = text {
+                        self.cache[text] = data
+                        print(data)
+                    }
+                })
+                .catchError{ error in
+                    if let text = text, let cachedData = self.cache[text] {
+                        print("cachedData:\(cachedData)")
+                        return Observable.just(cachedData)
+                    } else {
+                        return Observable.just(ApiController.Weather.empty)
+                    } //에러발생시 캐시데이터 보여주기
+                }
+        }//이제 textSearch에 입력된것들 cache에 쌓이게 됨 (Good)
         
         //이제 search를 탭했을때만 text가져오고 apiRequest (수시로 가져오지않고 )
         let search = Observable.from([geoSearch,textSearch,mapSearch]) //위에 같은 wather타입 반환하는놈들 합쳐주기
             .merge()
             .asDriver(onErrorJustReturn: ApiController.Weather.empty)
-        
         
         let running = Observable.from([
             searchInput.map { _ in true }, //seacrchTextField에 뭔가를 입력하고 누르면  true로 나타나고 animation시작
@@ -98,8 +111,6 @@ class ViewController: UIViewController {
         .startWith(true) //observabel에 true요소 먼저하나 추가 시작하고 시작
         .asDriver(onErrorJustReturn: false)
         //true면 보여지고 false면 indicator stop
-        
-        
         
         let _ = running.asObservable().subscribe(onNext: { //indicator view test 용
             if $0 == true {

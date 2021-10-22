@@ -99,7 +99,7 @@ class ApiController {
         let session = URLSession.shared
         print(request)
         
-        return session.rx.data(request: request).map{ try! JSON(data: $0) }
+        return session.rx.data(request: request).map{ try! JSON(data: $0) }.catchAndReturn("")
         // session으로 Observable<Data>를 반한하게 되고 map을 통해 JSon 타입으로 다시 바뀜
     }
     
