@@ -26,6 +26,7 @@ class ViewController: UIViewController {
     var cache = [String:ApiController.Weather]()
     let bag = DisposeBag()
     let locationManager = CLLocationManager()
+    let maxAttempts = 4
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,15 +79,34 @@ class ViewController: UIViewController {
             return ApiController.shared.currentWeather(lat: location.coordinate.latitude, lon: location.coordinate.longitude)
         } //위치로 도시명 도시정보 가져오는놈
         
+        let retryHandler:((Observable<Error>) -> Observable<Int>) = { e in
+            return e.enumerated().flatMap { (attempt, error) -> Observable<Int> in
+                if attempt >= self.maxAttempts - 1 {
+                    return Observable.error(error)
+                } else if let casted = error as? ApiController.ApiError, casted == .invalidKey {
+                    return ApiController.shared.apiKey
+                        .filter{ $0 != "" }
+                        .map{ _ in return 1}
+                }
+                print("== retrying after \(attempt+1) seconds ==")
+                return Observable<Int>.timer(RxTimeInterval.seconds(1), scheduler: MainScheduler.instance).take(1)
+            }
+        }
+        
+        
         let textSearch = searchInput.flatMap { text in //도시명으로 위치나 정보 가져오는놈
             return ApiController.shared.currentWeather(city: text ?? "Error")
                 .do(onNext: { data in
                     if let text = text {
                         self.cache[text] = data
-                        print(data)
                     }
-                })
-                .catchError{ error in
+                },onError: { [weak self] e in
+                    guard let strongSelf = self else { return }
+                    DispatchQueue.main.async {
+                        InfoView.showIn(viewController: strongSelf, message: "An error Occurred")
+                    }
+                }).retry(when: retryHandler)
+                .catch { error in
                     if let text = text, let cachedData = self.cache[text] {
                         print("cachedData:\(cachedData)")
                         return Observable.just(cachedData)
@@ -94,7 +114,7 @@ class ViewController: UIViewController {
                         return Observable.just(ApiController.Weather.empty)
                     } //에러발생시 캐시데이터 보여주기
                 }
-        }//이제 textSearch에 입력된것들 cache에 쌓이게 됨 (Good)
+        } //이제 textSearch에 입력된것들 cache에 쌓이게 됨 (Good)
         
         //이제 search를 탭했을때만 text가져오고 apiRequest (수시로 가져오지않고 )
         let search = Observable.from([geoSearch,textSearch,mapSearch]) //위에 같은 wather타입 반환하는놈들 합쳐주기
@@ -185,6 +205,20 @@ class ViewController: UIViewController {
         
     }
     
+    func showError(error e:Error) {
+        if let e = e as? ApiController.ApiError {
+            switch (e) {
+            case .cityNotFound:
+                InfoView.showIn(viewController: self, message: "City Name is invlid")
+            case .serverFailure:
+                InfoView.showIn(viewController: self, message: "Server error")
+            case .invalidKey:
+                InfoView.showIn(viewController: self, message: "Key is invalid")
+            }
+        } else {
+            InfoView.showIn(viewController: self, message: "An error occurred")
+        }
+    }
     
     //Default
     override func viewDidAppear(_ animated: Bool) {

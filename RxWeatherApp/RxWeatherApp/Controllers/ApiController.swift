@@ -17,7 +17,7 @@ class ApiController {
     /// the shared instance
     static var shared = ApiController()
     
-    private let apiKey = "ab4674ad07db87cfe9298be194bfd6b7"
+    let apiKey = BehaviorSubject(value: "ab4674ad07db87cfe9298be194bfd6b7")
     
     let baseURL = URL(string: "http://api.openweathermap.org/data/2.5")
     
@@ -66,6 +66,13 @@ class ApiController {
         .asObservable()
     }
     
+    enum ApiError:Error {
+        case cityNotFound
+        case serverFailure
+        case invalidKey
+    }
+    
+    
     //MARK: Private Methods
     //buildRequest with RxCocoa
     private func buildRequest(method:String = "GET", pathComponent:String,params:[(String,String)]) -> Observable<JSON> {
@@ -74,7 +81,7 @@ class ApiController {
             return Observable<JSON>.empty()
         }
         var request = URLRequest(url: url)
-        let keyQueryItem = URLQueryItem(name: "appid", value: apiKey)
+        let keyQueryItem = URLQueryItem(name: "appid", value: try? self.apiKey.value())
         let unitsQueryItem = URLQueryItem(name: "units", value: "metric")
         var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true)!
         
@@ -99,8 +106,18 @@ class ApiController {
         let session = URLSession.shared
         print(request)
         
-        return session.rx.data(request: request).map{ try! JSON(data: $0) }.catchAndReturn("")
-        // session으로 Observable<Data>를 반한하게 되고 map을 통해 JSon 타입으로 다시 바뀜
+        return session.rx.response(request: request).map() { respone, data in
+            if 200 ..< 300 ~= respone.statusCode {
+                return try JSON(data: data)
+            } else if respone.statusCode == 401 {
+                throw ApiError.invalidKey
+            } else if 400 ..< 500 ~= respone.statusCode {
+                throw ApiError.cityNotFound
+            } else {
+                throw ApiError.serverFailure
+            }
+        }
+        
     }
     
     struct Weather {

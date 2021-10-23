@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B6183989272462270043DCBE /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6183985272462270043DCBE /* InfoView.swift */; };
+		B618398A272462270043DCBE /* InfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6183986272462270043DCBE /* InfoView.xib */; };
 		B62E592A270050DD00608D87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62E5929270050DD00608D87 /* AppDelegate.swift */; };
 		B62E592C270050DD00608D87 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62E592B270050DD00608D87 /* SceneDelegate.swift */; };
 		B62E592E270050DD00608D87 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62E592D270050DD00608D87 /* ViewController.swift */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B6183985272462270043DCBE /* InfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		B6183986272462270043DCBE /* InfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoView.xib; sourceTree = "<group>"; };
 		B62E5926270050DD00608D87 /* RxWeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RxWeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B62E5929270050DD00608D87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B62E592B270050DD00608D87 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,6 +115,8 @@
 		B62E59432700531B00608D87 /* Utills */ = {
 			isa = PBXGroup;
 			children = (
+				B6183985272462270043DCBE /* InfoView.swift */,
+				B6183986272462270043DCBE /* InfoView.xib */,
 				B62E59442700532A00608D87 /* Colors.swift */,
 				B62E594A2700549D00608D87 /* Appreance.swift */,
 			);
@@ -202,6 +208,7 @@
 			files = (
 				B62E5936270050F000608D87 /* LaunchScreen.storyboard in Resources */,
 				B62E5933270050F000608D87 /* Assets.xcassets in Resources */,
+				B618398A272462270043DCBE /* InfoView.xib in Resources */,
 				B62E5931270050DD00608D87 /* Main.storyboard in Resources */,
 				B62E5941270052FB00608D87 /* weather.ttf in Resources */,
 			);
@@ -221,6 +228,7 @@
 				B66DFD35270A04FF009F3B37 /* RxMKMapViewDelegatePoxy.swift in Sources */,
 				B62E592A270050DD00608D87 /* AppDelegate.swift in Sources */,
 				B62E592C270050DD00608D87 /* SceneDelegate.swift in Sources */,
+				B6183989272462270043DCBE /* InfoView.swift in Sources */,
 				B62E594B2700549D00608D87 /* Appreance.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
