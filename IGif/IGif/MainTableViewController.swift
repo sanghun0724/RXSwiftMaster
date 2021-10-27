@@ -11,8 +11,6 @@ import SwiftyJSON
 
 class MainTableViewController: UITableViewController, UISearchResultsUpdating {
    
-    
-    
     let searchController = UISearchController(searchResultsController: nil)
     let bag = DisposeBag()
     var gifs = [JSON]()
