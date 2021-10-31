@@ -13,10 +13,10 @@ class ApiController {
     
     static let shared = ApiController()
     
-    private let apiKey = ""
+    private let apiKey = "W3Fo6jmjVoowuqzG4gcCWQRlFfaXMsWc"
     
     func search(text:String) -> Observable<[JSON]> {
-        let url = URL(string: "")!
+        let url = URL(string: "https://api.giphy.com/v1/gifs/search")!
         var request = URLRequest(url: url)
         let keyQueryItem = URLQueryItem(name: "apiKey", value: apiKey)
         let serchQueryItem = URLQueryItem(name: "q", value: text)
@@ -29,6 +29,8 @@ class ApiController {
         
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        return Observable.just([])
+        return URLSession.shared.rx.json(request: request).map() { json in
+            return json["data"].array ?? []
+        }
     }
 }
