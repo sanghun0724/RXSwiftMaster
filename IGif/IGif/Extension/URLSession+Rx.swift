@@ -45,7 +45,7 @@ extension Reactive where Base: URLSession {
                     observer.on(.error(RxURLSessionError.invalidResponse(resonse: response)))
                     return
                 }
-                observer.onNext((httpResponse,data))
+                observer.on(.next((httpResponse,data)))
                 observer.on(.completed)
             }
             
