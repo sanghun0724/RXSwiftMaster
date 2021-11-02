@@ -33,11 +33,8 @@ class GifTableViewCell:UITableViewCell {
             .subscribe(onNext: { imageData in
                 self.gifImageView.prepareForAnimation(withGIFData: imageData) {
                     print("it's working ")
-                    print(self.gifImageView.isAnimatingGIF)
+                    print(self.gifImageView.isAnimatingGIF) // true
                 }
-                self.gifImageView.animate(withGIFData: imageData, animationBlock:  {
-                    print("it's animating")
-                })
                 self.activityIndicator.stopAnimating()
             })
         disposable.setDisposable(s)
@@ -50,6 +47,11 @@ extension UIImageView: GIFAnimatable {
   }
 
   override open func display(_ layer: CALayer) {
+    guard let image = self.activeFrame else {
+        return
+    }
+    layer.contentsScale = image.scale
+    layer.contents = image.cgImage
     updateImageIfNeeded()
   }
 
@@ -58,6 +60,7 @@ extension UIImageView: GIFAnimatable {
       guard let animator = objc_getAssociatedObject(self, &AssociatedKeys.AnimatorKey) as? Animator else {
         let animator = Animator(withDelegate: self)
         self.animator = animator
+        
         return animator
       }
 

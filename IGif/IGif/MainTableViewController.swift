@@ -57,7 +57,7 @@ class MainTableViewController: UITableViewController {
         }
         
         let gif = gifs[indexPath.row]
-        if let url = gif["images"]["fixed_height_small"]["url"].string {
+        if let url = gif["images"]["fixed_height"]["url"].string {
             print(url)
             cell.downloadAndDisplay(gif:url)
         }
