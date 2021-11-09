@@ -14,12 +14,16 @@ class ViewController: UIViewController {
     
     
     @IBAction func onYesterday(_ sender: Any) {
+        viewModel.moveDay(day: -1)
     }
     
     @IBAction func onNow(_ sender: Any) {
+        dateTimeLabel.text = "Loding.."
+        viewModel.reload()
     }
     
     @IBAction func onTomorrow(_ sender: Any) {
+        viewModel.moveDay(day: 1)
     }
     
     let viewModel = ViewModel()
@@ -27,8 +31,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        viewModel.viewDidLoad()
-        dateTimeLabel.text = viewModel.dateTimeToString
+        viewModel.onUpdated = { [weak self] in
+            DispatchQueue.main.async {
+                print("work")
+                self?.dateTimeLabel.text = self?.viewModel.dateTimeString
+            }
+        }
+        
+        viewModel.reload()
     }
 
 

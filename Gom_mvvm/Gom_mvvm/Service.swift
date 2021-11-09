@@ -6,39 +6,32 @@
 //
 
 import Foundation
-
+//핵심 비지니스 로직 담당 (ex) moveDay)
 class Service {
     
     let repository = Repository()
     
+    var currentModel = Model(currentDateTime: Date())
+    
     func fetchNow(onCompleted:@escaping (Model) -> Void) {
-        repository.fetchNow { entity in
+        //Entity(json)->Repo(json)-> Service(Date)(Model)
+        repository.fetchNow { [weak self]entity in
             let formatter = DateFormatter()
             formatter.dateFormat = "yyyy-MM-dd'T'HH:mm'Z'"
             
             guard let now = formatter.date(from: entity.currentDateTime) else { return }
             let model = Model(currentDateTime: now)
+            self?.currentModel = model
             onCompleted(model)
         }
     }
     
     
-    func onYesterDay(now:Date) -> Date {
-        guard let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: now) else {
-            return now
+    func moveDay(day:Int) {
+        guard let yesterday = Calendar.current.date(byAdding: .day, value: day, to: currentModel.currentDateTime) else {
+            return
         }
-        return yesterday
-    }
-    
-    func onNow() {
-        
-    }
-    
-    func onTomorrow(now:Date) -> Date {
-        guard let tomorrow = Calendar.current.date(byAdding: .day, value: +1, to: now) else {
-            return now
-        }
-        return tomorrow
+        currentModel.currentDateTime = yesterday
     }
     
     

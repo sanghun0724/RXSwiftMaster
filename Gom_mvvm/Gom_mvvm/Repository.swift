@@ -9,11 +9,12 @@ import Foundation
 
 class Repository {
     func fetchNow(onCompleted: @escaping (UtcTimeModel) -> Void) {
-        let url = ""
+        let url = "http://worldclockapi.com/api/json/utc/now"
         
         URLSession.shared.dataTask(with: URL(string: url)!) { data, _,_ in
             guard let data = data else { return }
             guard let model = try? JSONDecoder().decode(UtcTimeModel.self, from: data) else { return }
+            print("repo working")
             onCompleted(model)
         }.resume()
     }
