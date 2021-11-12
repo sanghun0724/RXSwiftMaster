@@ -6,7 +6,7 @@
 //
 
 import Foundation
-//핵심 비지니스 로직 담당 (ex) moveDay)
+//핵심 비지니스 로직 담당 (ex) moveDay) With Model 
 class Service {
     
     let repository = Repository()

@@ -10,6 +10,7 @@ import Foundation
 class ViewModel {
     
     var onUpdated: () -> Void = {}
+    //With View
     //Model(Date)Service - > ViewModel(String)
     var dateTimeString:String = "Loding.." //화면에 보여줘야할 값 // 뷰를위한 모델: viewModel
     {
@@ -29,7 +30,6 @@ class ViewModel {
             guard let self = self else { return }
             let dateString = self.dateToString(date: model.currentDateTime)
             self.dateTimeString = dateString
-            print("yeak")
         }
     }
     

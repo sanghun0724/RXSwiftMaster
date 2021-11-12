@@ -33,7 +33,6 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         viewModel.onUpdated = { [weak self] in
             DispatchQueue.main.async {
-                print("work")
                 self?.dateTimeLabel.text = self?.viewModel.dateTimeString
             }
         }
