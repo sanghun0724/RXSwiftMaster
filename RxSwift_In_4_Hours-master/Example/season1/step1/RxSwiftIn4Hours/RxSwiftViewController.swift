@@ -13,13 +13,28 @@ class RxSwiftViewController: UIViewController {
     // MARK: - Field
 
     var counter: Int = 0
+    var disposeBag2 = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
-            self.counter += 1
-            self.countLabel.text = "\(self.counter)"
+       
+        Observable<Int>.create { emitter in
+            var counter = 0
+            
+            let timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
+                counter+=1
+                print(counter)
+                emitter.onNext(counter)
+            }
+            return Disposables.create {
+                timer.invalidate()
+            }
         }
+        .subscribe(onNext: { [weak self] i in
+            self?.countLabel.text = "\(i)"
+        })
+        .disposed(by: disposeBag2)
+        
     }
 
     // MARK: - IBOutlet

@@ -17,11 +17,17 @@ class ViewController: UIViewController {
     let idValid : BehaviorSubject<Bool> = BehaviorSubject(value: false)
     let pwInputText : BehaviorSubject<String> = BehaviorSubject(value: "")
     let pwValid : BehaviorSubject<Bool> = BehaviorSubject(value: false)
+    
+    let whatIsRelay = BehaviorRelay<Bool>(value: false)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         bindInput()
         bindOutput()
+        
+        self.whatIsRelay.accept(true) // error x completed x only next 죽지않는놈(스트림종료x)
+        //UI는 에러나도 없어지면 안됨 , UI연결용
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -38,7 +44,7 @@ class ViewController: UIViewController {
     @IBOutlet var pwValidView: UIView!
 
     // MARK: - Bind UI
-
+    //driver, Relay는 UI를 위한거 코코아에만 들어있음
     private func bindInput() {
         //input : 아이디입력, 비번입력
         idField.rx.text.orEmpty

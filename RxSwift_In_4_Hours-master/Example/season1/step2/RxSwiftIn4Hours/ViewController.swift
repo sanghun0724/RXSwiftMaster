@@ -75,6 +75,29 @@ class ViewController: UITableViewController {
             })
             .disposed(by: disposeBag)
     }
+    
+    private func rxImageLoder(_ src:URL) -> Observable<UIImage?> {
+        return Observable.create { emitter in
+            let task = URLSession.shared.dataTask(with: src) { (data, respone, error) in
+                if error != nil {
+                    emitter.onError(error!)
+                    print(error.localizedDescription)
+                    return
+                }
+                
+                guard let data = data else {
+                    emitter.onCompleted()
+                    return
+                }
+                let image = UIimage(data:data)
+                emitter.onNext(image)
+                
+            }
+            task.resume()
+            return Disposables.create()
+            task.cancel()
+        }
+    }
 
     @IBAction func exMap3() {
         Observable.just("800x600")
