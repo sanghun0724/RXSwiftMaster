@@ -19,11 +19,13 @@ class ViewController: UIViewController {
     let pwValid : BehaviorSubject<Bool> = BehaviorSubject(value: false)
     
     let whatIsRelay = BehaviorRelay<Bool>(value: false)
-
+    let sss  = PublishSubject<Int>() //애도 Observable의 한 종류임 but 차이점은 multicast , 종류는 4가지
+     //애도 컴플릿이나 에러나면 종료  -> UI에서 쓸거면 Relay로 (subject ui판이라 생각하면됨)
+    let viewModel = ViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        bindInput()
-        bindOutput()
+        bindUI()
         
         self.whatIsRelay.accept(true) // error x completed x only next 죽지않는놈(스트림종료x)
         //UI는 에러나도 없어지면 안됨 , UI연결용
@@ -45,68 +47,32 @@ class ViewController: UIViewController {
 
     // MARK: - Bind UI
     //driver, Relay는 UI를 위한거 코코아에만 들어있음
-    private func bindInput() {
-        //input : 아이디입력, 비번입력
+    private func bindUI() {
+        //Input : 이메일,비번입력
         idField.rx.text.orEmpty
-            .bind(to: idInputText) //결과 값 idInputtext에 저장
+            .bind(to: viewModel.emailText)
             .disposed(by: disposeBag)
-        
-        idInputText
-            .map(checkEmailValid)
-            .bind(to: idValid)
-            .disposed(by: disposeBag)
+            
         
         pwField.rx.text.orEmpty
-            .bind(to: pwInputText)
+            .bind(to: viewModel.pwText)
             .disposed(by: disposeBag)
         
-        pwInputText
-            .map(checkPasswordValid)
-            .bind(to: pwValid) //결과값 pwValid에 저장
-            .disposed(by: disposeBag)
-    
-//        idField.rx.text.orEmpty
-//            .map(checkEmailValid)
-//            .subscribe(onNext: { s in
-//                self.idValidView.isHidden = s
-//        })
-//        .disposed(by:disposeBag)
-//
-//        pwField.rx.text.orEmpty
-//            .map(checkPasswordValid)
-//            .subscribe(onNext: { p in
-//                self.pwValidView.isHidden = p
-//            })
-//            .disposed(by: disposeBag)
-//
-//        Observable.combineLatest(idField.rx.text.orEmpty.map(checkEmailValid), pwField.rx.text.orEmpty.map(checkPasswordValid)) { s1 , s2  in  s1 && s2 }
-//            .subscribe(onNext: { b in
-//                self.loginButton.isEnabled = b
-//            })
-//            .disposed(by: disposeBag)
-    }
-    
-    private func bindOutput() {
-        //output: 불릿,로그인버튼Enable
-        idValid.subscribe(onNext: { b in self.idValidView.isHidden = b})
-            .disposed(by: disposeBag)
-
-        pwValid.subscribe(onNext: { b in self.pwValidView.isHidden = b})
+        //output :이메일 , 비번 체크 결과
+        viewModel.isEmailValid
+            .bind(to: idValidView.rx.isHidden)
             .disposed(by: disposeBag)
         
-        Observable.combineLatest(idValid, pwValid,resultSelector: { $0 && $1 })
-            .subscribe(onNext: {s in self.loginButton.isEnabled = s})
+        viewModel.isPasswordValid
+            .bind(to: pwValidView.rx.isHidden)
+            .disposed(by: disposeBag)
+        
+        //output : button Enable
+        Observable.combineLatest(viewModel.isEmailValid, viewModel.isPasswordValid) {$0 && $1 }
+            .bind(to: self.loginButton.rx.isEnabled)
             .disposed(by: disposeBag)
     }
     
+    
 
-    // MARK: - Logic
-
-    private func checkEmailValid(_ email: String) -> Bool {
-        return email.contains("@") && email.contains(".")
-    }
-
-    private func checkPasswordValid(_ password: String) -> Bool {
-        return password.count > 5
-    }
 }

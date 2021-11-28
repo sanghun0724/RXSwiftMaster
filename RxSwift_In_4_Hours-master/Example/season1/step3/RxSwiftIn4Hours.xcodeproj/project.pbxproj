@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,7 @@
 		A17B1A2421CC0F86002F67D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A17B1A2321CC0F86002F67D4 /* Assets.xcassets */; };
 		A17B1A2721CC0F86002F67D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A17B1A2521CC0F86002F67D4 /* LaunchScreen.storyboard */; };
 		A19086DE21CC9680001EA064 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A19086DD21CC9680001EA064 /* ViewController.swift */; };
+		B61CC7F127538C3500385EF6 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61CC7F027538C3500385EF6 /* ViewModel.swift */; };
 		BF331A59C40B4A3C07B954BB /* Pods_RxSwiftIn4Hours.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA3077934E57373C53B96B31 /* Pods_RxSwiftIn4Hours.framework */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +25,7 @@
 		A17B1A2621CC0F86002F67D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A17B1A2821CC0F86002F67D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A19086DD21CC9680001EA064 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B61CC7F027538C3500385EF6 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		BA3077934E57373C53B96B31 /* Pods_RxSwiftIn4Hours.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxSwiftIn4Hours.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9EA195C82CD26BF9891E9B6 /* Pods-RxSwiftIn4Hours.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwiftIn4Hours.release.xcconfig"; path = "Pods/Target Support Files/Pods-RxSwiftIn4Hours/Pods-RxSwiftIn4Hours.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -80,6 +82,7 @@
 			children = (
 				A17B1A1C21CC0F84002F67D4 /* AppDelegate.swift */,
 				A19086DD21CC9680001EA064 /* ViewController.swift */,
+				B61CC7F027538C3500385EF6 /* ViewModel.swift */,
 				A17B1A2021CC0F84002F67D4 /* Main.storyboard */,
 				A17B1A2321CC0F86002F67D4 /* Assets.xcassets */,
 				A17B1A2521CC0F86002F67D4 /* LaunchScreen.storyboard */,
@@ -204,6 +207,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A19086DE21CC9680001EA064 /* ViewController.swift in Sources */,
+				B61CC7F127538C3500385EF6 /* ViewModel.swift in Sources */,
 				A17B1A1D21CC0F84002F67D4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

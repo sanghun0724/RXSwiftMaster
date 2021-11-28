@@ -69,4 +69,5 @@ class AsyncViewController: UIViewController {
             return Disposables.create()
         }
     }
+
 }

@@ -20,17 +20,27 @@ class ViewController: UITableViewController {
     }
   //이렇게 Stream들로 async programming 하겠다!!!!!!!
     @IBAction func exJust1() {
-        Observable.just("Hello World")
-            .subscribe { event in
-                switch event {
-                case .next(let str):
-                    break;
-                case .error(let err):
-                    break
-                case .completed:
-                    break
-                }
+       let _ = Observable<String>.create { observer in
+            observer.onNext("Hello world")
+            observer.onCompleted()
+            return Disposables.create()
+        }
+        .subscribe { event in
+            switch event {
+                case .next(let text):
+                print(text)
+            case .completed:
+                break
+            case .error(let _):
+                break
             }
+        }
+        
+        //SUGAR
+        Observable.just("Hello World")
+            .subscribe(onNext:{ text in
+                print($0)
+            })
     }
 
     @IBAction func exJust2() {
