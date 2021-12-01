@@ -19,9 +19,10 @@ class 나중에생기는스트링데이터 {
         _job = job
     }
     
-    func 오겠지(_ f: @escaping (String) -> Void) {
+    func 오겠지(_ f: @escaping (String) -> Void) -> Void {
         DispatchQueue.global().async {
-            self._job(f)
+            self._job(f) //매개변수에 있는 식 받아서 job에대가 적용
+            //f 에서 치는 코드들 (매개변수)은 job 안에서 치는거랑 같음!!!!!!
         }
     }
 }
@@ -78,7 +79,7 @@ class ViewController: UIViewController {
         
         let 나중에생기는데이터 = getJson2()
         
-        나중에생기는데이터.오겠지 { (json) in
+        나중에생기는데이터.오겠지() { (json) in
             DispatchQueue.main.async {
                 self.editView.text = json // 3
                 self.setVisibleWithAnimation(self.activityIndicator, false) //4
