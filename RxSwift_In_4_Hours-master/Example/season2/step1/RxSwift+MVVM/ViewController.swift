@@ -12,6 +12,20 @@ import UIKit
 
 let MEMBER_LIST_URL = "https://my.api.mockaroo.com/members_with_avatar.json?key=44ce18f0"
 
+class 나중에생기는스트링데이터 {
+    let _job: (@escaping (String) -> Void ) -> Void
+    
+    init(_ job: @escaping (@escaping (String) -> Void) -> Void) {
+        _job = job
+    }
+    
+    func 오겠지(_ f: @escaping (String) -> Void) {
+        DispatchQueue.global().async {
+            self._job(f)
+        }
+    }
+}
+
 class ViewController: UIViewController {
     @IBOutlet var timerLabel: UILabel!
     @IBOutlet var editView: UITextView!
@@ -31,8 +45,16 @@ class ViewController: UIViewController {
             self?.view.layoutIfNeeded()
         })
     }
-
-    // MARK: SYNC
+    
+    
+    func getJson2() -> 나중에생기는스트링데이터 {
+        return 나중에생기는스트링데이터() { f in
+            let url = URL(string: MEMBER_LIST_URL)!
+            let data = try! Data(contentsOf: url)
+            let json = String(data:data,encoding: .utf8)!
+            f(json)
+        }
+    }
 
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
 
@@ -46,5 +68,21 @@ class ViewController: UIViewController {
         self.editView.text = json
         
         self.setVisibleWithAnimation(self.activityIndicator, false)
+    }
+    
+    // MARK: SYNC
+
+    @IBAction func onSyncButtontap() {
+        editView.text = ""
+        setVisibleWithAnimation(activityIndicator, true)
+        
+        let 나중에생기는데이터 = getJson2()
+        
+        나중에생기는데이터.오겠지 { (json) in
+            DispatchQueue.main.async {
+                self.editView.text = json // 3
+                self.setVisibleWithAnimation(self.activityIndicator, false) //4
+            }
+        }
     }
 }
