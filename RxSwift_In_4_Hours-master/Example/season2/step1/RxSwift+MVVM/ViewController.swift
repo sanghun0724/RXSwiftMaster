@@ -47,7 +47,6 @@ class ViewController: UIViewController {
         })
     }
     
-    
     func getJson2() -> 나중에생기는스트링데이터 {
         return 나중에생기는스트링데이터() { f in
             let url = URL(string: MEMBER_LIST_URL)!
@@ -56,6 +55,17 @@ class ViewController: UIViewController {
             f(json)
         }
     }
+    
+    func getJson3() -> Observable<String> {
+        return Observable.create { f in
+            let url = URL(string: MEMBER_LIST_URL)!
+            let data = try! Data(contentsOf: url)
+            let json = String(data: data,encoding: .utf8)!
+            f.onNext(json)
+            return Disposables.create()
+        }
+    }
+    
 
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
 
@@ -85,5 +95,6 @@ class ViewController: UIViewController {
                 self.setVisibleWithAnimation(self.activityIndicator, false) //4
             }
         }
+        getJson3().subscribe()
     }
 }
