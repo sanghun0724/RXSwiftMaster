@@ -82,6 +82,7 @@ class ViewController: UIViewController {
     }
     
     // MARK: SYNC
+    var disposable:Disposable?
 
     @IBAction func onSyncButtontap() {
         editView.text = ""
@@ -95,6 +96,12 @@ class ViewController: UIViewController {
                 self.setVisibleWithAnimation(self.activityIndicator, false) //4
             }
         }
-        getJson3().subscribe()
+        disposable = getJson3()
+            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .default))
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { json in
+                self.editView.text = json
+                self.setVisibleWithAnimation(self.activityIndicator, false)
+            })
     }
 }
