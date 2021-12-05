@@ -57,13 +57,13 @@ class ViewController: UIViewController {
     }
     
     func getJson3() -> Observable<String> {
-        return Observable.create { f in
-            let url = URL(string: MEMBER_LIST_URL)!
-            let data = try! Data(contentsOf: url)
-            let json = String(data: data,encoding: .utf8)!
-            f.onNext(json)
-            return Disposables.create()
-        }
+        return Observable.just(MEMBER_LIST_URL) //String
+            .map { URL(string: $0)! } // url
+            .map { try Data(contentsOf: $0) } //Data
+            .map { JSON($0) } //Json
+            .flatMap { Observable.from($0.arrayValue) } //JSON
+            .map { $0["name"].stringValue} //JSON
+            .map { $0 + "\n"}
     }
     
 
