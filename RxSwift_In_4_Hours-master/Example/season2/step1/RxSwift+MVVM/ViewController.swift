@@ -77,8 +77,18 @@ class ViewController: UIViewController {
         
         ob3.subscribe()
         ob4.subscribe()
+        //분기
         //이렇게 해버리면 ob2가 2번 작동되어서 2번 다운로드 하게됨
         // 그래서 중복을 없애기 위해 shared()를 쓴것 (중간의 스트림에서 뿌리처럼 뻐져나오게)
+        
+        //병합
+        Observable.zip(ob3,ob4) { names,ids in names.count + ids.count }
+            .map { i in } //둘다 페어히게 짝지어서 내려보내는거 어떤타입으로할지는 Map으로 내가결정
+        Observable.merge(ob3,ob4) //merge는 바로합치기 떄문에 타입이 같아야댐
+        Observable.combineLatest(ob3,ob4) { names ,ids in names.count + ids.count }
+        //이놈은 zip이랑 좀 다른게 zip은 페어하게 가야되지만 combineLatest는 한쪽이 값이 안내려올경우 가장 최근값을 가져다 씀 
+        
+        
         
         return Observable.just(MEMBER_LIST_URL) //String
             .map { URL(string: $0)! } // url
