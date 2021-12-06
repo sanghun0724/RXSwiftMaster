@@ -57,6 +57,29 @@ class ViewController: UIViewController {
     }
     
     func getJson3() -> Observable<String> {
+        
+        let ob2:Observable<JSON> =
+            Observable.just(MEMBER_LIST_URL) //String
+            .map { URL(string: $0)! } //URL
+            .map { try Data(contentsOf: $0) } //Data
+            .map {JSON($0)}
+            .share()
+        
+        let ob3 = ob2
+            .flatMap { Observable.from($0.arrayValue) } //JSON
+            .map { $0["name"].stringValue } //JSON
+            .map { $0 + "\n" }
+        
+        let ob4 = ob2
+            .flatMap { Observable.from($0.arrayValue) }
+            .map { $0["id"].intValue } //JSON
+            .map { "\($0)\n" }
+        
+        ob3.subscribe()
+        ob4.subscribe()
+        //이렇게 해버리면 ob2가 2번 작동되어서 2번 다운로드 하게됨
+        // 그래서 중복을 없애기 위해 shared()를 쓴것 (중간의 스트림에서 뿌리처럼 뻐져나오게)
+        
         return Observable.just(MEMBER_LIST_URL) //String
             .map { URL(string: $0)! } // url
             .map { try Data(contentsOf: $0) } //Data
