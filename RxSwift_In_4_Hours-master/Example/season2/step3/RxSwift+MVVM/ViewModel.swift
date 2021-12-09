@@ -15,7 +15,7 @@ class ViewModel {
             sumPrice$.onNext(sumPrice)
         }
     }
-    var sumPrice$ = PublishSubject<Int>()
+    var sumPrice$ = BehaviorSubject(value: 0) //초기값 가진 Subject
     
     func addFried(_ price:Int) {
         sumPrice += price

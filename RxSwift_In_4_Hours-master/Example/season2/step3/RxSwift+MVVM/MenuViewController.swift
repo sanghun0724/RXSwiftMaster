@@ -7,13 +7,24 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class MenuViewController: UIViewController {
     // MARK: - Life Cycle
-
+    
+    let viewModel = ViewModel()
+    let disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableViewPullToRefresh()
+        
+        viewModel.sumPrice$
+            .map {$0.currencyKR() }
+            .observeOn(MainScheduler.instance)
+            .bind(to: totalPrice.rx.text)
+            .disposed(by: disposeBag)
 
         fetchMenuItems()
         updateTotalInfo()
