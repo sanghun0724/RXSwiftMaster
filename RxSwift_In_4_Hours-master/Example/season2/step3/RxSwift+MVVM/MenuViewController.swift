@@ -151,7 +151,15 @@ extension MenuViewController: UITableViewDataSource {
             tableView.beginUpdates()
             tableView.reloadRows(at: [indexPath], with: .automatic)
             tableView.endUpdates()
-
+            
+            if inc > 0 {
+                self.viewModel.addFried(item.menu.price)
+            } else {
+                self.viewModel.subFried(item.menu.price)
+            }
+            
+            
+            
             self.updateTotalInfo()
         }
 
