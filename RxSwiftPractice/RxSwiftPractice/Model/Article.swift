@@ -9,7 +9,7 @@ import Foundation
 
 struct ArticleResponse:Codable{
     let status:String
-    let totalResult:Int
+    let totalResults:Int
     let articles:[Article]
 }
 
