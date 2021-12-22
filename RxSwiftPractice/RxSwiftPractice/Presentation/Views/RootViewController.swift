@@ -26,7 +26,7 @@ class RootViewController:UIViewController {
         return cv
     }()
     
-    private let articleViewModel = BehaviorRelay<[ArticleViewModel]>(value: [])
+    let articleViewModel = BehaviorRelay<[ArticleViewModel]>(value: [])
     var articleViewModelObserver:Observable<[ArticleViewModel]> {
         return articleViewModel.asObservable()
     }

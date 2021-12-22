@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import RxSwift
+import Alamofire
 
 
 class ArticleSerivce:ArticleServiceProtocol {
