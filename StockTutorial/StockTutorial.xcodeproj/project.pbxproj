@@ -18,6 +18,9 @@
 		B6E6D49027734C86007CB4D4 /* StockListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E6D48F27734C86007CB4D4 /* StockListView.swift */; };
 		B6E6D49327734FF7007CB4D4 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E6D49227734FF7007CB4D4 /* Coordinator.swift */; };
 		B6E6D49627735083007CB4D4 /* CompositonRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E6D49527735083007CB4D4 /* CompositonRoot.swift */; };
+		B6E6D4992773760F007CB4D4 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E6D4982773760F007CB4D4 /* MainCoordinator.swift */; };
+		B6E6D49C277378B0007CB4D4 /* StockRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E6D49B277378B0007CB4D4 /* StockRepository.swift */; };
+		B6E6D49F27737AB4007CB4D4 /* StockRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E6D49E27737AB4007CB4D4 /* StockRepositoryImpl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 		B6E6D48F27734C86007CB4D4 /* StockListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockListView.swift; sourceTree = "<group>"; };
 		B6E6D49227734FF7007CB4D4 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		B6E6D49527735083007CB4D4 /* CompositonRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositonRoot.swift; sourceTree = "<group>"; };
+		B6E6D4982773760F007CB4D4 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		B6E6D49B277378B0007CB4D4 /* StockRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockRepository.swift; sourceTree = "<group>"; };
+		B6E6D49E27737AB4007CB4D4 /* StockRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockRepositoryImpl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				B6E6D49227734FF7007CB4D4 /* Coordinator.swift */,
+				B6E6D4982773760F007CB4D4 /* MainCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -135,6 +142,8 @@
 		B6E6D484277346E8007CB4D4 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				B6E6D49B277378B0007CB4D4 /* StockRepository.swift */,
+				B6E6D49E27737AB4007CB4D4 /* StockRepositoryImpl.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -218,7 +227,10 @@
 				B6E6D49327734FF7007CB4D4 /* Coordinator.swift in Sources */,
 				B6E6D46D2773462D007CB4D4 /* ViewController.swift in Sources */,
 				B6E6D49627735083007CB4D4 /* CompositonRoot.swift in Sources */,
+				B6E6D4992773760F007CB4D4 /* MainCoordinator.swift in Sources */,
 				B6E6D48727734709007CB4D4 /* BaseViewController.swift in Sources */,
+				B6E6D49C277378B0007CB4D4 /* StockRepository.swift in Sources */,
+				B6E6D49F27737AB4007CB4D4 /* StockRepositoryImpl.swift in Sources */,
 				B6E6D4692773462D007CB4D4 /* AppDelegate.swift in Sources */,
 				B6E6D49027734C86007CB4D4 /* StockListView.swift in Sources */,
 				B6E6D48D27734BFF007CB4D4 /* BaseView.swift in Sources */,

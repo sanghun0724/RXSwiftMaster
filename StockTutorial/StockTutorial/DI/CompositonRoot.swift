@@ -8,13 +8,14 @@
 import Foundation
 
 struct AppDependency {
-    let coordinator:Coordinator
+    let mainCoordinator:MainCoordinator
 }
 
 extension AppDependency {
     static func resolve() -> AppDependency {
-        let coordinator:Coordinator = .init()
+        let mainCoordinator:MainCoordinator = .init()
         
-        return .init(coordinator: coordinator)
+        return .init(mainCoordinator: mainCoordinator)
     }
 }
+//H4ZRG44U4X1T6VSV
