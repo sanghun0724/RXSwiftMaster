@@ -16,6 +16,8 @@
 		B6E6D48A27734BC2007CB4D4 /* StockListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E6D48927734BC2007CB4D4 /* StockListController.swift */; };
 		B6E6D48D27734BFF007CB4D4 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E6D48C27734BFF007CB4D4 /* BaseView.swift */; };
 		B6E6D49027734C86007CB4D4 /* StockListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E6D48F27734C86007CB4D4 /* StockListView.swift */; };
+		B6E6D49327734FF7007CB4D4 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E6D49227734FF7007CB4D4 /* Coordinator.swift */; };
+		B6E6D49627735083007CB4D4 /* CompositonRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E6D49527735083007CB4D4 /* CompositonRoot.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		B6E6D48927734BC2007CB4D4 /* StockListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockListController.swift; sourceTree = "<group>"; };
 		B6E6D48C27734BFF007CB4D4 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		B6E6D48F27734C86007CB4D4 /* StockListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockListView.swift; sourceTree = "<group>"; };
+		B6E6D49227734FF7007CB4D4 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		B6E6D49527735083007CB4D4 /* CompositonRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositonRoot.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,7 @@
 		B6E6D47E277346BF007CB4D4 /* DI */ = {
 			isa = PBXGroup;
 			children = (
+				B6E6D49527735083007CB4D4 /* CompositonRoot.swift */,
 			);
 			path = DI;
 			sourceTree = "<group>";
@@ -90,6 +95,7 @@
 		B6E6D47F277346CA007CB4D4 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				B6E6D49227734FF7007CB4D4 /* Coordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -209,7 +215,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6E6D49327734FF7007CB4D4 /* Coordinator.swift in Sources */,
 				B6E6D46D2773462D007CB4D4 /* ViewController.swift in Sources */,
+				B6E6D49627735083007CB4D4 /* CompositonRoot.swift in Sources */,
 				B6E6D48727734709007CB4D4 /* BaseViewController.swift in Sources */,
 				B6E6D4692773462D007CB4D4 /* AppDelegate.swift in Sources */,
 				B6E6D49027734C86007CB4D4 /* StockListView.swift in Sources */,
