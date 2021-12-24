@@ -30,6 +30,7 @@ class StockCell:UITableViewCell {
         
         descriptionLabel.topAnchor.constraint(equalTo: symbolLabel.bottomAnchor, constant: 12).isActive = true
         descriptionLabel.leftAnchor.constraint(equalTo: symbolLabel.leftAnchor).isActive = true
+        descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor,constant: -12).isActive = true
         
         companyNameLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         companyNameLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -12).isActive = true

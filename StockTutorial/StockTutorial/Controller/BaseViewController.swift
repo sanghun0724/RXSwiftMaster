@@ -13,6 +13,7 @@ class BaseViewController:UIViewController {
     
     let disposeBag = DisposeBag()
     var subscriber: Set<AnyCancellable> = .init()
+    private var scrollView:UIScrollView?
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -29,5 +30,16 @@ class BaseViewController:UIViewController {
     
     func configureUI() {
         view.backgroundColor = .systemBackground
+    }
+    
+    @objc func keyboardWillShow(notification:NSNotification) {
+        guard let scrollView = scrollView else { return }
+        guard let userInfo = notification.userInfo else { return }
+        var keyboardFrame:CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+        
+        var contentInset:UIEdgeInsets = scrollView.contentInset
+        contentInset.bottom = keyboardFrame.size.height + 20
+        scrollView.contentInset = contentInset
     }
 }

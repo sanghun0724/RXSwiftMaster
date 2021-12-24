@@ -40,6 +40,9 @@ class StockListController:BaseViewController,FactoryModule {
         selfView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         selfView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         selfView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        selfView.tableView.delegate = self
+        selfView.tableView.dataSource = self
+        
         
         selfView.searchViewController.delegate = self
         selfView.searchViewController.searchResultsUpdater = self
@@ -61,7 +64,8 @@ class StockListController:BaseViewController,FactoryModule {
             print("error: \(message)")
         }.store(in: &subscriber)
         
-        viewModel.$stocks.sink { stocks in
+        viewModel.$stocks.sink { [unowned self]stocks in
+            self.selfView.tableView.reloadData()
             print("stocks:\(stocks)")
         }.store(in: &subscriber)
         
