@@ -14,7 +14,7 @@ class StockRepositoryImpl:StockRepository {
     let decoder = JSONDecoder()
     
     func fetchStockPublisher(keywords: String) -> AnyPublisher<StockResult, Error> {
-        let urlString = "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&\(keywords)=tesco&\(apiKey)=demo"
+        let urlString = "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=\(keywords)&apikey=\(apiKey)"
         
         let url = URL(string: urlString)!
         

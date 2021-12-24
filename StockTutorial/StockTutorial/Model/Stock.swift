@@ -11,7 +11,7 @@ struct StockResult: Decodable {
     var items:[Stock]
     
     enum CodingKeys:String,CodingKey {
-        case items = "bsetMatches"
+        case items = "bestMatches"
     }
 }
 

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -25,6 +25,10 @@
 		B6E6D4992773760F007CB4D4 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E6D4982773760F007CB4D4 /* MainCoordinator.swift */; };
 		B6E6D49C277378B0007CB4D4 /* StockRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E6D49B277378B0007CB4D4 /* StockRepository.swift */; };
 		B6E6D49F27737AB4007CB4D4 /* StockRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E6D49E27737AB4007CB4D4 /* StockRepositoryImpl.swift */; };
+		B6EBA4522775A89E00FED10C /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EBA4512775A89E00FED10C /* LoadingView.swift */; };
+		B6EBA4562775AAC800FED10C /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EBA4552775AAC800FED10C /* Font.swift */; };
+		B6EBA4592775AB8300FED10C /* StockCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EBA4582775AB8300FED10C /* StockCell.swift */; };
+		B6EBA45C2775BDBE00FED10C /* StockList+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EBA45B2775BDBE00FED10C /* StockList+TableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +54,10 @@
 		B6E6D4982773760F007CB4D4 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		B6E6D49B277378B0007CB4D4 /* StockRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockRepository.swift; sourceTree = "<group>"; };
 		B6E6D49E27737AB4007CB4D4 /* StockRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockRepositoryImpl.swift; sourceTree = "<group>"; };
+		B6EBA4512775A89E00FED10C /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		B6EBA4552775AAC800FED10C /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		B6EBA4582775AB8300FED10C /* StockCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockCell.swift; sourceTree = "<group>"; };
+		B6EBA45B2775BDBE00FED10C /* StockList+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StockList+TableView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +78,6 @@
 				17F5CEFB948EAAAAD802B706 /* Pods-StockTutorial.debug.xcconfig */,
 				686C614ED234C32EACB84F4A /* Pods-StockTutorial.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -144,6 +151,7 @@
 				B6E6D48627734709007CB4D4 /* BaseViewController.swift */,
 				B6E6D48927734BC2007CB4D4 /* StockListController.swift */,
 				B66995E12774633E0016D50E /* StockListViewModel.swift */,
+				B6EBA45B2775BDBE00FED10C /* StockList+TableView.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -153,6 +161,7 @@
 			children = (
 				B6E6D48C27734BFF007CB4D4 /* BaseView.swift */,
 				B6E6D48F27734C86007CB4D4 /* StockListView.swift */,
+				B6EBA4582775AB8300FED10C /* StockCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -160,6 +169,8 @@
 		B6E6D482277346DF007CB4D4 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				B6EBA4512775A89E00FED10C /* LoadingView.swift */,
+				B6EBA4552775AAC800FED10C /* Font.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -305,6 +316,7 @@
 				B6E6D49327734FF7007CB4D4 /* Coordinator.swift in Sources */,
 				B6E6D46D2773462D007CB4D4 /* ViewController.swift in Sources */,
 				B6E6D49627735083007CB4D4 /* CompositonRoot.swift in Sources */,
+				B6EBA4522775A89E00FED10C /* LoadingView.swift in Sources */,
 				B6E6D4992773760F007CB4D4 /* MainCoordinator.swift in Sources */,
 				B66995E22774633E0016D50E /* StockListViewModel.swift in Sources */,
 				B6E6D48727734709007CB4D4 /* BaseViewController.swift in Sources */,
@@ -313,7 +325,10 @@
 				B6E6D49F27737AB4007CB4D4 /* StockRepositoryImpl.swift in Sources */,
 				B66995DF2774628B0016D50E /* StockUseCase.swift in Sources */,
 				B6E6D4692773462D007CB4D4 /* AppDelegate.swift in Sources */,
+				B6EBA4562775AAC800FED10C /* Font.swift in Sources */,
 				B6E6D49027734C86007CB4D4 /* StockListView.swift in Sources */,
+				B6EBA4592775AB8300FED10C /* StockCell.swift in Sources */,
+				B6EBA45C2775BDBE00FED10C /* StockList+TableView.swift in Sources */,
 				B6E6D48D27734BFF007CB4D4 /* BaseView.swift in Sources */,
 				B6E6D48A27734BC2007CB4D4 /* StockListController.swift in Sources */,
 				B6E6D46B2773462D007CB4D4 /* SceneDelegate.swift in Sources */,

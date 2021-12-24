@@ -1,0 +1,49 @@
+//
+//  StockCell.swift
+//  StockTutorial
+//
+//  Created by sangheon on 2021/12/24.
+//
+
+import UIKit
+
+class StockCell:UITableViewCell {
+    
+    static let identifier = "StockCellIdentifier"
+    
+    let symbolLabel = titleLabel()
+    let descriptionLabel = NormalGrayLabel()
+    let companyNameLabel = NormalLabel()
+    
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        addSubview(symbolLabel)
+        symbolLabel.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(descriptionLabel)
+        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(companyNameLabel)
+        companyNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        symbolLabel.topAnchor.constraint(equalTo: topAnchor,constant: 12).isActive = true
+        symbolLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 12).isActive = true
+        
+        descriptionLabel.topAnchor.constraint(equalTo: symbolLabel.bottomAnchor, constant: 12).isActive = true
+        descriptionLabel.leftAnchor.constraint(equalTo: symbolLabel.leftAnchor).isActive = true
+        
+        companyNameLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        companyNameLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -12).isActive = true
+        companyNameLabel.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width / 2).isActive = true
+    
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configureUI(item: Stock) {
+        symbolLabel.text = item.symbol
+        descriptionLabel.text = "\(item.type ?? "")\(item.currency ?? "")"
+        companyNameLabel.text = item.name
+    }
+}
