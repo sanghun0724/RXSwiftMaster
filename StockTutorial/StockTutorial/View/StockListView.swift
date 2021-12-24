@@ -31,6 +31,7 @@ class StockListView:BaseView {
         tableView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         tableView.register(StockCell.self, forCellReuseIdentifier: StockCell.identifier)
+        tableView.separatorStyle = .none
         
         addSubview(loadingView)
         loadingView.translatesAutoresizingMaskIntoConstraints = false

@@ -20,6 +20,7 @@ extension StockListController:UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: StockCell.identifier, for: indexPath) as? StockCell ?? StockCell()
         let item = viewModel.currentStocks[indexPath.row]
         cell.configureUI(item: item)
+        cell.selectionStyle = .none
         return cell
     }
     

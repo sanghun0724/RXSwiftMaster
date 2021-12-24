@@ -33,6 +33,14 @@ class StockListController:BaseViewController,FactoryModule {
         bind()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        enableScrollWhenKeyboardAppeared(scrollView: selfView.tableView)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        removeListeners()
+    }
+    
     override func configureUI() {
         view.addSubview(self.selfView)
         selfView.translatesAutoresizingMaskIntoConstraints = false
