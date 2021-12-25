@@ -1,0 +1,18 @@
+name:StockTutorial
+options:
+  bundleIdPrefix:com.sangheon
+  deploymentTarget:13.0
+  postGenCommand:pod install
+target:
+  StockTutorial:
+    type: application
+    platform: iOS
+    deploymentTarget: "13.0"
+    sources:
+      - path: StockTutorial
+    settings:
+      configs:
+        debug:
+          DEVELOPMENT_TEAM: 65QVSD682D
+        release:
+          DEVELOPMENT_TEAM: 65QVSD682D
