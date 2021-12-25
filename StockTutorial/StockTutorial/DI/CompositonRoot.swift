@@ -23,7 +23,11 @@ extension AppDependency {
             return .init(dependency: .init(viewModel: viewModel))
         }
         
-        let mainCoordinator:MainCoordinator = .init(dependency: .init(stockListControllerFactory: StockListControllerFactory))
+        let stockDetailControllerFactory:(Stock) -> StockDetailController = { stock in
+            return .init(dependency: .init(stock: stock))
+        }
+        
+        let mainCoordinator:MainCoordinator = .init(dependency: .init(stockListControllerFactory: StockListControllerFactory, stockDetatilControllerFactory: stockDetailControllerFactory))
         
         return .init(mainCoordinator: mainCoordinator)
     }

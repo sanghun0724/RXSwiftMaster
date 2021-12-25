@@ -18,6 +18,7 @@ class StockListController:BaseViewController,FactoryModule {
     
     let selfView = StockListView()
     let viewModel:StockListViewModel
+    var coordinator: MainCoordinator?
     
     required init(dependency: Dependency, payload: ()) {
         viewModel = dependency.viewModel

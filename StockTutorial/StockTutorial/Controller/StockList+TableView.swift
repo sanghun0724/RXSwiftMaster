@@ -8,6 +8,10 @@
 import UIKit
 
 extension StockListController:UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = viewModel.currentStocks[indexPath.row]
+        coordinator?.stockCellTapped(item: item)
+    }
     
 }
 
