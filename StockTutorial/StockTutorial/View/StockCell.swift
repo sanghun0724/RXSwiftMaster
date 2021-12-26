@@ -11,7 +11,7 @@ class StockCell:UITableViewCell {
     
     static let identifier = "StockCellIdentifier"
     
-    let symbolLabel = titleLabel()
+    let symbolLabel = TitleLabel()
     let descriptionLabel = NormalGrayLabel()
     let companyNameLabel = NormalLabel()
     

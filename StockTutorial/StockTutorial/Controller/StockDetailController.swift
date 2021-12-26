@@ -14,6 +14,7 @@ class StockDetailController:BaseViewController , FactoryModule {
     }
     
     let stock:Stock
+    let selfView = StockDetailView()
 
     required init(dependency:Dependency,payload:()) {
         stock = dependency.stock
@@ -27,5 +28,11 @@ class StockDetailController:BaseViewController , FactoryModule {
     override func configureUI() {
         view.backgroundColor = .systemBackground
         title = "DetailView"
+        view.addSubview(selfView)
+        selfView.translatesAutoresizingMaskIntoConstraints = false
+        selfView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        selfView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        selfView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        selfView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
 }
