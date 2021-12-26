@@ -10,6 +10,7 @@ import UIKit
 class StockDetailView: BaseView {
     let scrollView = UIScrollView()
     let topView = StockDetailTopView()
+    let bottomView = StockDetailBottomView()
     
     override func configureUI() {
         
@@ -26,5 +27,11 @@ class StockDetailView: BaseView {
         topView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         topView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         
+        scrollView.addSubview(bottomView)
+        bottomView.translatesAutoresizingMaskIntoConstraints = false
+        bottomView.topAnchor.constraint(equalTo: topView.bottomAnchor).isActive = true
+        bottomView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        bottomView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+        bottomView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -50).isActive = true
     }
 }
