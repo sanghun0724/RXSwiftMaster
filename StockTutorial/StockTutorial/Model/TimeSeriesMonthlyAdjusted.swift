@@ -23,7 +23,7 @@ struct TimeSeriesMonthlyAdjusted: Decodable {
         
         enum CodingKeys:String,CodingKey {
             case open = "1. open"
-            case close = "4. colse"
+            case close = "4. close"
             case adjustedClose = "5. adjusted close"
         }
     }

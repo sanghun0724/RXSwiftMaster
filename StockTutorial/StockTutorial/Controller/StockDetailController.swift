@@ -49,5 +49,23 @@ class StockDetailController:BaseViewController , FactoryModule {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.viewDidLoad(symbol: stock.symbol ?? "")
+        bind()
     }
+    
+    func bind() {
+        viewModel.$timeSeriesMonthlyAdjusted.sink { timeSeriesMonthlyAdjusted in
+            guard let timeSeriesMonthlyAdjusted = timeSeriesMonthlyAdjusted else { return }
+            print("timeSeriesMonthlyAdjsuted: \(timeSeriesMonthlyAdjusted)")
+        }.store(in: &subscriber)
+        viewModel.$errorMessage.sink { errorMessage in
+            guard let errorMessage = errorMessage else { return }
+            print("errorMessage: \(errorMessage)")
+        }.store(in: &subscriber)
+        
+        viewModel.$loading.sink { loading in
+            self.selfView.loadingView.isHidden = !loading
+        }.store(in:&subscriber)
+        
+    }
+    
 }

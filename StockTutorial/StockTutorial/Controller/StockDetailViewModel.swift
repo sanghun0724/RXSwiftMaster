@@ -16,7 +16,15 @@ class StockDetailViewModel:BaseViewModel {
     let usecase:StockDetailUseCase
     
     func viewDidLoad(symbol:String) {
-        
+        usecase.fetchTimeSeriesPublish(keywords: symbol).sink { completion in
+            switch completion {
+            case .failure(let error):
+                self.errorMessage = error.localizedDescription
+            case .finished: break;
+            }
+        } receiveValue: { value in
+            self.timeSeriesMonthlyAdjusted = value
+        }.store(in: &subscriber)
     }
     
     init(usecase:StockDetailUseCase) {
