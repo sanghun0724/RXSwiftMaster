@@ -38,4 +38,16 @@ class StockDetailController:BaseViewController , FactoryModule {
         selfView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         selfView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        enableScrollWhenKeyboardAppeared(scrollView: selfView.scrollView)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        removeListeners()
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        viewModel.viewDidLoad(symbol: stock.symbol ?? "")
+    }
 }
