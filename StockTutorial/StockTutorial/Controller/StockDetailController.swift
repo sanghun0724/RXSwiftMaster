@@ -11,13 +11,16 @@ import Pure
 class StockDetailController:BaseViewController , FactoryModule {
     struct Dependency {
         let stock:Stock
+        let viewModel:StockDetailViewModel
     }
     
     let stock:Stock
     let selfView = StockDetailView()
+    let viewModel:StockDetailViewModel
 
     required init(dependency:Dependency,payload:()) {
         stock = dependency.stock
+        viewModel = dependency.viewModel
         super.init(nibName: nil, bundle: nil)
     }
     

@@ -1,13 +1,12 @@
 import RxSwift
 import Combine
 
-class StockListViewModel {
+class StockListViewModel:BaseViewModel{
     @Published var stocks:[Stock] = []
     @Published var errorMessage:String?
     @Published var loading = false
     @Published var isEmpty = false
     var currentStocks:[Stock] = []
-    var subscriber:Set<AnyCancellable> = .init()
     let usecase:StockUseCase
     
     func searchQueryChanged(query:String) {
@@ -29,7 +28,8 @@ class StockListViewModel {
     
     init(usecase:StockUseCase) {
         self.usecase = usecase
-        reduce()
+        super.init()
+        self.reduce()
     }
     
     //stock값이 있냐 없냐 판단해서 isEmpty값 넣어줌
