@@ -35,8 +35,4 @@ struct TimeSeriesMonthlyAdjusted: Decodable {
             case symbol = "2. Symbol"
         }
     }
-    
-    
-    
-    
 }
