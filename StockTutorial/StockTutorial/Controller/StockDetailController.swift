@@ -62,6 +62,9 @@ class StockDetailController:BaseViewController , FactoryModule {
         viewModel.$stock.sink { stock in
             guard let stock = stock else { return }
             self.selfView.topView.configureUI(stock:stock)
+            if let currency = stock.currency {
+                self.selfView.bottomView.configureUI(currency: currency)
+            }
         }.store(in: &subscriber)
         
         viewModel.$errorMessage.sink { errorMessage in
