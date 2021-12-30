@@ -17,6 +17,7 @@ class StockDetailController:BaseViewController , FactoryModule {
     let stock:Stock
     let selfView = StockDetailView()
     let viewModel:StockDetailViewModel
+    var coordinator:MainCoordinator?
 
     required init(dependency:Dependency,payload:()) {
         stock = dependency.stock
@@ -37,6 +38,7 @@ class StockDetailController:BaseViewController , FactoryModule {
         selfView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         selfView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         selfView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        selfView.bottomView.dateInputView.textField.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -77,5 +79,15 @@ class StockDetailController:BaseViewController , FactoryModule {
         }.store(in:&subscriber)
         
     }
-    
+}
+
+extension StockDetailController: UITextFieldDelegate {
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        if textField == selfView.bottomView.dateInputView.textField {
+            
+            coordinator?.dateInputTextFieldTapped()
+            return false
+        }
+        return true
+    }
 }
