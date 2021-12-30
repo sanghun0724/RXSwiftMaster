@@ -12,6 +12,7 @@ class StockDetailViewModel:BaseViewModel {
     @Published var loading = false
     @Published var errorMessage:String?
     @Published var timeSeriesMonthlyAdjusted:TimeSeriesMonthlyAdjusted?
+    @Published var monthInfos:[MonthInfo] = []
     
     let usecase:StockDetailUseCase
     
@@ -30,6 +31,13 @@ class StockDetailViewModel:BaseViewModel {
     init(usecase:StockDetailUseCase) {
         self.usecase = usecase
         super.init()
+        bind()
+    }
+    func bind() { // time시리즈 데이터 감시하고 있다가 바뀌면 monthinfo도 업데이트 
+        $timeSeriesMonthlyAdjusted.sink { (timeSeriesMonthlyAdjusted) in
+            guard let timeSeriesMonthlyAdjusted = timeSeriesMonthlyAdjusted else { return }
+            self.monthInfos = timeSeriesMonthlyAdjusted.generateMonthInfos()
+        }.store(in: &subscriber)
     }
     
 }
