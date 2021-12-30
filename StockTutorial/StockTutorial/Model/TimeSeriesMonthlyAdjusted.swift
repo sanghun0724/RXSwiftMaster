@@ -10,6 +10,7 @@ import Foundation
 struct TimeSeriesMonthlyAdjusted: Decodable {
     let meta: Meta
     let series:[String:OHLC]
+    var monthInfos:[MonthInfo] = [] //codable 아니기 때문에 초기값 필수
     
     enum CodingKeys:String, CodingKey {
         case meta = "Meta Data"
@@ -36,7 +37,7 @@ struct TimeSeriesMonthlyAdjusted: Decodable {
         }
     }
     
-    func generateMonthInfos() -> [MonthInfo] {
+   mutating func generateMonthInfos() { //monthInfo를 추가하기 위해 mutating keyword 추가
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         var monthInfos:[MonthInfo] = []
@@ -49,7 +50,7 @@ struct TimeSeriesMonthlyAdjusted: Decodable {
                 monthInfos.append(monthInfo)
             }
         }
-        return monthInfos
+    self.monthInfos = monthInfos
     }
     
     private func generateAdjustedOpen(ohlc:OHLC) -> Double? {

@@ -12,11 +12,12 @@ class StockDetailViewModel:BaseViewModel {
     @Published var loading = false
     @Published var errorMessage:String?
     @Published var timeSeriesMonthlyAdjusted:TimeSeriesMonthlyAdjusted?
-    @Published var monthInfos:[MonthInfo] = []
-    
+    @Published var stock:Stock?
+  
     let usecase:StockDetailUseCase
     
-    func viewDidLoad(symbol:String) {
+    func viewDidLoad(symbol:String,stock: Stock) {
+        self.stock = stock
         loading = true
         usecase.fetchTimeSeriesPublish(keywords: symbol).sink { completion in
             self.loading = false
@@ -26,20 +27,15 @@ class StockDetailViewModel:BaseViewModel {
             case .finished: break;
             }
         } receiveValue: { value in
-            self.timeSeriesMonthlyAdjusted = value
+            var timeSeriesMonthlyAdjusted = value //받아오고
+            timeSeriesMonthlyAdjusted.generateMonthInfos() //model에 monthinfo추가
+            self.timeSeriesMonthlyAdjusted = timeSeriesMonthlyAdjusted
         }.store(in: &subscriber)
     }
     
     init(usecase:StockDetailUseCase) {
         self.usecase = usecase
         super.init()
-        bind()
-    }
-    func bind() { // time시리즈 데이터 감시하고 있다가 바뀌면 monthinfo도 업데이트
-        $timeSeriesMonthlyAdjusted.sink { (timeSeriesMonthlyAdjusted) in
-            guard let timeSeriesMonthlyAdjusted = timeSeriesMonthlyAdjusted else { return }
-            self.monthInfos = timeSeriesMonthlyAdjusted.generateMonthInfos()
-        }.store(in: &subscriber)
     }
     
 }
