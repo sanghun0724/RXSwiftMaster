@@ -17,7 +17,9 @@ class StockDetailViewModel:BaseViewModel {
     let usecase:StockDetailUseCase
     
     func viewDidLoad(symbol:String) {
+        loading = true
         usecase.fetchTimeSeriesPublish(keywords: symbol).sink { completion in
+            self.loading = false
             switch completion {
             case .failure(let error):
                 self.errorMessage = error.localizedDescription
@@ -33,7 +35,7 @@ class StockDetailViewModel:BaseViewModel {
         super.init()
         bind()
     }
-    func bind() { // time시리즈 데이터 감시하고 있다가 바뀌면 monthinfo도 업데이트 
+    func bind() { // time시리즈 데이터 감시하고 있다가 바뀌면 monthinfo도 업데이트
         $timeSeriesMonthlyAdjusted.sink { (timeSeriesMonthlyAdjusted) in
             guard let timeSeriesMonthlyAdjusted = timeSeriesMonthlyAdjusted else { return }
             self.monthInfos = timeSeriesMonthlyAdjusted.generateMonthInfos()
