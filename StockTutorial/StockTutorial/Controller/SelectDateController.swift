@@ -9,6 +9,6 @@ import UIKit
 
 class SelectDateController:UITableViewController {
     override func viewDidLoad() {
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
     }
 }
