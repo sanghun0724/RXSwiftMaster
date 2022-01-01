@@ -12,6 +12,7 @@
 		B6005DF927808B8D00227426 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6005DF827808B8D00227426 /* Assets.xcassets */; };
 		B6005DFC27808B8D00227426 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6005DFA27808B8D00227426 /* LaunchScreen.storyboard */; };
 		B6005E0827808BDA00227426 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6005E0727808BDA00227426 /* LoginViewController.swift */; };
+		B6005E0C27808C5000227426 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6005E0B27808C5000227426 /* Coordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		B6005DFB27808B8D00227426 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B6005DFD27808B8D00227426 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6005E0727808BDA00227426 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B6005E0B27808C5000227426 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				B6005DF827808B8D00227426 /* Assets.xcassets */,
 				B6005DFA27808B8D00227426 /* LaunchScreen.storyboard */,
 				B6005DFD27808B8D00227426 /* Info.plist */,
+				B6005E0B27808C5000227426 /* Coordinator.swift */,
 			);
 			path = loginValidation;
 			sourceTree = "<group>";
@@ -141,6 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6005E0C27808C5000227426 /* Coordinator.swift in Sources */,
 				B6005E0827808BDA00227426 /* LoginViewController.swift in Sources */,
 				B6005DF027808B8200227426 /* AppDelegate.swift in Sources */,
 				B6005DF227808B8200227426 /* SceneDelegate.swift in Sources */,
