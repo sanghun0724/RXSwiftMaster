@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,8 @@
 		B6005DFC27808B8D00227426 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6005DFA27808B8D00227426 /* LaunchScreen.storyboard */; };
 		B6005E0827808BDA00227426 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6005E0727808BDA00227426 /* LoginViewController.swift */; };
 		B6005E0C27808C5000227426 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6005E0B27808C5000227426 /* Coordinator.swift */; };
+		B6F84AA6278156E000A68ECF /* UIViewController-extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F84AA5278156E000A68ECF /* UIViewController-extension.swift */; };
+		B6F84AAC27815ADF00A68ECF /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F84AAB27815ADF00A68ECF /* LoginViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		B6005DFD27808B8D00227426 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6005E0727808BDA00227426 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B6005E0B27808C5000227426 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		B6F84AA5278156E000A68ECF /* UIViewController-extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController-extension.swift"; sourceTree = "<group>"; };
+		B6F84AAB27815ADF00A68ECF /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		CE347792056CDC4206991E9A /* Pods-loginValidation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-loginValidation.release.xcconfig"; path = "Target Support Files/Pods-loginValidation/Pods-loginValidation.release.xcconfig"; sourceTree = "<group>"; };
 		F919FF34DCE8CD7FD32CB667 /* Pods-loginValidation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-loginValidation.debug.xcconfig"; path = "Target Support Files/Pods-loginValidation/Pods-loginValidation.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -48,7 +52,6 @@
 				F919FF34DCE8CD7FD32CB667 /* Pods-loginValidation.debug.xcconfig */,
 				CE347792056CDC4206991E9A /* Pods-loginValidation.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -81,6 +84,8 @@
 		B6005DEE27808B8200227426 /* loginValidation */ = {
 			isa = PBXGroup;
 			children = (
+				B6F84AAA27815ACF00A68ECF /* ViewModel */,
+				B6F84AA4278156B700A68ECF /* Extensions */,
 				B6005E0627808BC300227426 /* Controllers */,
 				B6005DEF27808B8200227426 /* AppDelegate.swift */,
 				B6005DF127808B8200227426 /* SceneDelegate.swift */,
@@ -98,6 +103,22 @@
 				B6005E0727808BDA00227426 /* LoginViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		B6F84AA4278156B700A68ECF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B6F84AA5278156E000A68ECF /* UIViewController-extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B6F84AAA27815ACF00A68ECF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B6F84AAB27815ADF00A68ECF /* LoginViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,6 +235,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6005E0C27808C5000227426 /* Coordinator.swift in Sources */,
+				B6F84AA6278156E000A68ECF /* UIViewController-extension.swift in Sources */,
+				B6F84AAC27815ADF00A68ECF /* LoginViewModel.swift in Sources */,
 				B6005E0827808BDA00227426 /* LoginViewController.swift in Sources */,
 				B6005DF027808B8200227426 /* AppDelegate.swift in Sources */,
 				B6005DF227808B8200227426 /* SceneDelegate.swift in Sources */,
