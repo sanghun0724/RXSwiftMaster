@@ -14,6 +14,7 @@
 		B6005DFC27808B8D00227426 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6005DFA27808B8D00227426 /* LaunchScreen.storyboard */; };
 		B6005E0827808BDA00227426 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6005E0727808BDA00227426 /* LoginViewController.swift */; };
 		B6005E0C27808C5000227426 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6005E0B27808C5000227426 /* Coordinator.swift */; };
+		B6EE0EC327847ABD0090A8BA /* NormalController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EE0EC227847ABD0090A8BA /* NormalController.swift */; };
 		B6F84AA6278156E000A68ECF /* UIViewController-extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F84AA5278156E000A68ECF /* UIViewController-extension.swift */; };
 		B6F84AAC27815ADF00A68ECF /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F84AAB27815ADF00A68ECF /* LoginViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -28,6 +29,7 @@
 		B6005DFD27808B8D00227426 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6005E0727808BDA00227426 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B6005E0B27808C5000227426 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		B6EE0EC227847ABD0090A8BA /* NormalController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalController.swift; sourceTree = "<group>"; };
 		B6F84AA5278156E000A68ECF /* UIViewController-extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController-extension.swift"; sourceTree = "<group>"; };
 		B6F84AAB27815ADF00A68ECF /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		CE347792056CDC4206991E9A /* Pods-loginValidation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-loginValidation.release.xcconfig"; path = "Target Support Files/Pods-loginValidation/Pods-loginValidation.release.xcconfig"; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				B6005E0727808BDA00227426 /* LoginViewController.swift */,
+				B6EE0EC227847ABD0090A8BA /* NormalController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6EE0EC327847ABD0090A8BA /* NormalController.swift in Sources */,
 				B6005E0C27808C5000227426 /* Coordinator.swift in Sources */,
 				B6F84AA6278156E000A68ECF /* UIViewController-extension.swift in Sources */,
 				B6F84AAC27815ADF00A68ECF /* LoginViewModel.swift in Sources */,

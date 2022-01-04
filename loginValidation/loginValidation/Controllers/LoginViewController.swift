@@ -10,12 +10,20 @@ import MaterialComponents.MaterialTextControls_OutlinedTextFields
 import MaterialComponents.MaterialButtons
 import RxSwift
 import RxCocoa
+import MaterialComponents
+
+protocol TestDelegate: AnyObject {
+    func fetchData(_ str:String)
+}
+
 
 class LoginViewController:UIViewController {
     
     //MARK: Properties
+    let test = "AFTER"
     let viewModel = LoginViewModel()
     let disposeBag = DisposeBag()
+    var delegate2:TestDelegate?
     
     private lazy var idTextField:MDCOutlinedTextField = {
         let tf = MDCOutlinedTextField()
@@ -38,13 +46,14 @@ class LoginViewController:UIViewController {
         return tf
     }()
     
-    private lazy var loginButton:MDCButton = {
-        let bt = MDCButton()
+    private lazy var loginButton:UIButton = {
+        let bt = UIButton()
         bt.setTitle("login", for: UIControl.State.normal)
         bt.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        bt.setBackgroundColor(UIColor.purple)
-        bt.isUserInteractionEnabled = false
+        bt.isUserInteractionEnabled = true
+        bt.backgroundColor = .blue
         bt.alpha = 0.3
+        bt.addTarget(self, action: #selector(moveAway), for: UIControl.Event.touchUpInside)
         return bt
     }()
     
@@ -54,6 +63,15 @@ class LoginViewController:UIViewController {
         stack.spacing = 50
         return stack
     }()
+    
+    //MARK : Button Action
+    @objc func moveAway() {
+        if let navigationController = self.navigationController {
+          navigationController.pushViewController(NormalController(), animated: true)
+        }
+        print("click")
+        delegate2?.fetchData(test)
+    }
     
     
     //MARK: Lifecycles
