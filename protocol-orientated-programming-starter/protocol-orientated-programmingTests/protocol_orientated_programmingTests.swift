@@ -12,24 +12,43 @@ class protocol_orientated_programmingTests: XCTestCase {
     
     private var sut:UserViewModel!
     private var userService:MockUserService!
+    private var output: MockUserViewOutput!
 
     override func setUpWithError() throws {
-        
+        output = MockUserViewOutput()
         userService = MockUserService()
-        
-        sut = UserViewModel(userService: userService)       
+        sut = UserViewModel(userService: userService)
+        sut.output = output
+        try super.setUpWithError()
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        sut = nil
+        userService = nil
+        try super.tearDownWithError()
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func testUpdateView_whenAPISuccess_showsImageAndEamil() {
+    //given (가진것들 (변수같은))
+        let user = User(id: 1, email: "me@gamil.com", avatar: "https://www.picsum.com/2")
+        userService.fetchUserMockResult = .success(user)
+    //when (something happens)
+        sut.fetchUser()
+    //then(what is expected result)
+        XCTAssertEqual(output.updateViewArray.count, 1)
+        XCTAssertEqual(output.updateViewArray[0].email, "me@gamil.com")
+        XCTAssertEqual(output.updateViewArray[0].imageUrl, "https://www.picsum.com/2")
+    }
+    
+    func testUpdateView_onAPIFailiure_showsErrorImageAndDefaultNoUserFoundText() {
+        //given
+        userService.fetchUserMockResult = .failure(NSError())
+        //when
+        sut.fetchUser()
+        //then
+        XCTAssertEqual(output.updateViewArray.count, 1)
+        XCTAssertEqual(output.updateViewArray[0].email, "No User Found")
+        XCTAssertEqual(output.updateViewArray[0].imageUrl, "https://cdn1.iconfinder.com/data/icons/user-fill-icons-set/144/User003_Error-1024 .jpg")
     }
 
     
@@ -44,6 +63,13 @@ class MockUserService:UserService {
             completion(result)
         }
     }
-    
-    
 }
+
+class MockUserViewOutput: UserViewModelOutput {
+    var updateViewArray:[(imageUrl:String,email:String)] = []
+    // i want read image url ,email <- Func 할떄마다
+    func updateView(imageUrl: String, email: String) {
+        updateViewArray.append((imageUrl,email))
+    }
+}
+//breakPoint 걸어보기 (뭔값들어있는지 홗인가능)
