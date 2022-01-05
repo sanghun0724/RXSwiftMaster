@@ -10,27 +10,38 @@ import UIKit
 class NormalController:UIViewController,TestDelegate {
     
     
-   // weak var loginController = LoginViewController()
+     var loginController = LoginViewController()
     
     //MARK:Properties
     private let label:UILabel = {
         let label = UILabel()
-        label.text = "before"
         return label
     }()
     
+    private let buttton:UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .blue
+        button.addTarget(self, action: #selector(moveAway), for: .touchUpInside)
+        return button
+    }()
+    
+    @objc func moveAway() {
+        
+        if let navigationController = self.navigationController {
+          navigationController.pushViewController(LoginViewController(), animated: true)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loginController.delegate2 = self
         view.backgroundColor = .red
-        print("hi")
         configureUI()
-       // loginController!.delegate2 = self
     }
     
-    
     func fetchData(_ str: String) {
-        self.label.text = str
+        print("test")
+        label.text = str
     }
     
     //MARK:Configure
@@ -40,6 +51,12 @@ class NormalController:UIViewController,TestDelegate {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         label.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
+        
+        view.addSubview(buttton)
+        buttton.translatesAutoresizingMaskIntoConstraints = false
+        buttton.centerYAnchor.constraint(equalTo: view.centerYAnchor,constant: 100).isActive = true
+        buttton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
     
 }

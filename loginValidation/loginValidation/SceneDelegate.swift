@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: scene)
 //        let coordinator = Coordinator(window: window!)
 //        coordinator.start()
-        let navi = UINavigationController(rootViewController: LoginViewController())
+        let navi = UINavigationController(rootViewController: NormalController())
         window!.rootViewController = navi
         window!.makeKeyAndVisible()
     }

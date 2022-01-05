@@ -23,7 +23,7 @@ class LoginViewController:UIViewController {
     let test = "AFTER"
     let viewModel = LoginViewModel()
     let disposeBag = DisposeBag()
-    var delegate2:TestDelegate?
+    weak var delegate2:TestDelegate?
     
     private lazy var idTextField:MDCOutlinedTextField = {
         let tf = MDCOutlinedTextField()
@@ -66,11 +66,18 @@ class LoginViewController:UIViewController {
     
     //MARK : Button Action
     @objc func moveAway() {
+        let nc = NormalController()
+        self.delegate2 = nc
+        
+        if let delegate = self.delegate2 {
+            delegate.fetchData("work")
+        } else {
+            print("misiing")
+        }
+       
         if let navigationController = self.navigationController {
           navigationController.pushViewController(NormalController(), animated: true)
         }
-        print("click")
-        delegate2?.fetchData(test)
     }
     
     
