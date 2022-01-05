@@ -6,11 +6,18 @@
 //
 
 import XCTest
+@testable import protocol_orientated_programming
 
 class protocol_orientated_programmingTests: XCTestCase {
+    
+    private var sut:UserViewModel!
+    private var userService:MockUserService!
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        
+        userService = MockUserService()
+        
+        sut = UserViewModel(userService: userService)       
     }
 
     override func tearDownWithError() throws {
@@ -25,5 +32,18 @@ class protocol_orientated_programmingTests: XCTestCase {
         // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
     }
 
+    
+}
+
+
+class MockUserService:UserService {
+    var fetchUserMockResult:Result<User, Error>?
+    
+    func fetchUser(completion: @escaping (Result<User, Error>) -> Void) {
+        if let result = fetchUserMockResult {
+            completion(result)
+        }
+    }
+    
     
 }
