@@ -46,6 +46,27 @@ class RootViewModelTest: XCTestCase {
         XCTAssertEqual(output.flow.count, 1)
         XCTAssertEqual(output.flow[0], .login)
     }
+    
+    func testShowMainApp_whenLoginStorageReturnUserToken_isCalled() {
+        //given
+        loginStorageService.dict["ACCESS_TOKEN"] = UUID().uuidString
+        //when
+        sut.startFlow()
+        //then
+        XCTAssertEqual(output.flow.count, 1)
+        XCTAssertEqual(output.flow[0], .mainApp)
+    }
+    
+    func testShowMainApp_whenLoginStorageReturnEmptyStringUserToken_isCalled() {
+        //given
+        loginStorageService.dict["ACCESS_TOKEN"] = "" //empty!
+        //when
+        sut.startFlow()
+        //then
+        XCTAssertEqual(output.flow.count, 1)
+        XCTAssertEqual(output.flow[0], .login) //so login
+    }
+    
 }
 
 class MockLoginStorageService:LoginStorageService {
