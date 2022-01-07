@@ -15,6 +15,7 @@
 		B606465F2785B16D00946D03 /* protocol_orientated_programmingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B606465E2785B16D00946D03 /* protocol_orientated_programmingTests.swift */; };
 		B65A3396278730880017D8D7 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65A3395278730880017D8D7 /* RootViewController.swift */; };
 		B65A3398278735C90017D8D7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65A3397278735C90017D8D7 /* LoginViewController.swift */; };
+		B6B51A2627886DEB00616EF9 /* RootViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B51A2527886DEB00616EF9 /* RootViewModelTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,7 @@
 		B606465E2785B16D00946D03 /* protocol_orientated_programmingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = protocol_orientated_programmingTests.swift; sourceTree = "<group>"; };
 		B65A3395278730880017D8D7 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		B65A3397278735C90017D8D7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B6B51A2527886DEB00616EF9 /* RootViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModelTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				B606465E2785B16D00946D03 /* protocol_orientated_programmingTests.swift */,
+				B6B51A2527886DEB00616EF9 /* RootViewModelTest.swift */,
 			);
 			path = "protocol-orientated-programmingTests";
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6B51A2627886DEB00616EF9 /* RootViewModelTest.swift in Sources */,
 				B606465F2785B16D00946D03 /* protocol_orientated_programmingTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
