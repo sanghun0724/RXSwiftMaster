@@ -35,7 +35,7 @@ class StockListController:BaseViewController,FactoryModule {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        enableScrollWhenKeyboardAppeared(scrollView: selfView.tableView)
+        self.enableScrollWhenKeyboardAppeared(scrollView: selfView.tableView)
     }
     
     override func viewWillDisappear(_ animated: Bool) {

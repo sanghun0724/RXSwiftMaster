@@ -30,8 +30,8 @@
             filePath = "protocol-orientated-programmingTests/RootViewModelTest.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
             landmarkName = "testShowMainApp_whenLoginStorageReturnEmptyStringUserToken_isCalled()"
             landmarkType = "7">
          </BreakpointContent>

@@ -21,13 +21,11 @@ class RootViewModelTest: XCTestCase {
         loginStorageService = MockLoginStorageService()
         output = MockRootViewModelOutput()
         
-        
         sut = RootViewModel(loginStorageService: loginStorageService,
                             userService: userService)
         
         sut.output = output
         try super.setUpWithError()
-        
     }
 
     override func tearDownWithError() throws {

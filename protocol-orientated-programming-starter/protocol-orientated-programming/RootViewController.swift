@@ -50,15 +50,29 @@ class RootViewController:UIViewController ,RootViewModelOutput {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    private let customView:UIView = {
+        let v = UIView()
+        v.backgroundColor = .blue
+        return v
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .yellow
+        view.addSubview(customView)
+        customView.translatesAutoresizingMaskIntoConstraints = false
+        customView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        customView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        customView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        customView.heightAnchor.constraint(equalToConstant: 200).isActive = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         viewModel.output = self
         viewModel.startFlow()
+       
     }
     
     //MARK: - RootViewModel
