@@ -7,14 +7,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class StockListViewController: BaseController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemRed
-        print("hi")
+        
     }
-
-
+    
 }
 

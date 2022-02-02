@@ -13,7 +13,6 @@ protocol UserViewModelOutput:AnyObject {
 
 
 class UserViewModel {
-    
     weak var output:UserViewModelOutput?
     private let userService:UserService
     
