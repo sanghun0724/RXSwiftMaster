@@ -13,7 +13,7 @@ final class EventListCoordinator:Coordinator {
    
     private let navigationController:UINavigationController
     
-    init(navigationController:UINavigationController) {
+    init(navigationController:UINavigationController) { //Tabbar가능
         self.navigationController = navigationController
     }
     
