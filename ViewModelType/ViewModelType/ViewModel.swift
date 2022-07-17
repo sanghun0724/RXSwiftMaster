@@ -10,8 +10,9 @@ import RxCocoa
 
 final class ViewModel: ViewModelType {
     
-    let disposeBag = DisposeBag()
-    let dependency: Dependency
+    var disposeBag = DisposeBag()
+    var dependency: Dependency
+    
     struct Dependency {
         let dummy: Int
     }

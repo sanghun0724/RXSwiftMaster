@@ -12,6 +12,10 @@ protocol ViewModelType {
     associatedtype Input
     associatedtype Output
     
+    var dependency: Dependency { get }
+    var disposeBag: DisposeBag { get set }
+    
+    
     init(dependency: Dependency)
     func transform(input: Input) -> Output
 }
