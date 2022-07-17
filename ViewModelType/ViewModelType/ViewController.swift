@@ -12,12 +12,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var countBtn: UIButton!
     
+    let viewModel = ViewModel(dependency: .init(dummy: 0))
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
 
-
+    
+    private func setUpBindings() {
+        
+    }
 }
 
