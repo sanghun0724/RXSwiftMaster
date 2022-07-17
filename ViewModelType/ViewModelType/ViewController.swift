@@ -15,16 +15,8 @@ final class ViewController: UIViewController {
     @IBOutlet weak var countBtn: UIButton!
     
     let disposeBag = DisposeBag()
-    let viewModel: ViewModel
+    let viewModel = ViewModel(dependency: .init(dummy: 0))
     
-    init(viewModel: ViewModel) {
-        self.viewModel = ViewModel(dependency: .init(dummy: 0))
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpBindings()
@@ -40,9 +32,6 @@ final class ViewController: UIViewController {
             .map { String($0) }
             .drive(countLabel.rx.text)
             .disposed(by: disposeBag)
-        
-  
-        
     }
 }
 
