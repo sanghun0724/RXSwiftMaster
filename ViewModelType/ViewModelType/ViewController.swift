@@ -32,6 +32,8 @@ final class ViewController: UIViewController {
             .map { String($0) }
             .drive(countLabel.rx.text)
             .disposed(by: disposeBag)
+        //drive vs bind
+        // drive = main thread + 그때문에 stream 낭비 x
     }
 }
 
