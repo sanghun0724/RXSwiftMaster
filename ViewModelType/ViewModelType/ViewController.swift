@@ -20,20 +20,18 @@ final class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpBindings()
-        // Do any additional setup after loading the view.
     }
     
-    
     private func setUpBindings() {
-         let input = ViewModel.Input(didTapBtn: countBtn.rx.tap.asObservable() )
-         let output = viewModel.transform(input: input)
+        let input = ViewModel.Input(didTapBtn: countBtn.rx.tap.asObservable() )
+        let output = viewModel.transform(input: input)
         
         output.countNum
             .map { String($0) }
             .drive(countLabel.rx.text)
             .disposed(by: disposeBag)
         //drive vs bind
-        // drive = main thread + 그때문에 stream 낭비 x
+        //drive = main thread + 그때문에 stream 낭비 x
     }
 }
 
