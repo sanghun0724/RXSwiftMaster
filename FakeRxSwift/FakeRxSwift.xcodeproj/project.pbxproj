@@ -29,6 +29,7 @@
 		B6D2677428A7995F004E3BD6 /* FlatMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D2677328A7995F004E3BD6 /* FlatMap.swift */; };
 		B6D2677628A7B814004E3BD6 /* CombineLatest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D2677528A7B814004E3BD6 /* CombineLatest.swift */; };
 		B6D2677828A7BB88004E3BD6 /* Zip.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D2677728A7BB88004E3BD6 /* Zip.swift */; };
+		B6D2677A28A7BDB7004E3BD6 /* DisposeBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D2677928A7BDB7004E3BD6 /* DisposeBag.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		B6D2677328A7995F004E3BD6 /* FlatMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatMap.swift; sourceTree = "<group>"; };
 		B6D2677528A7B814004E3BD6 /* CombineLatest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineLatest.swift; sourceTree = "<group>"; };
 		B6D2677728A7BB88004E3BD6 /* Zip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zip.swift; sourceTree = "<group>"; };
+		B6D2677928A7BDB7004E3BD6 /* DisposeBag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisposeBag.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 				B6D2677328A7995F004E3BD6 /* FlatMap.swift */,
 				B6D2677528A7B814004E3BD6 /* CombineLatest.swift */,
 				B6D2677728A7BB88004E3BD6 /* Zip.swift */,
+				B6D2677928A7BDB7004E3BD6 /* DisposeBag.swift */,
 			);
 			path = Operator;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 				B6D2676928A778A4004E3BD6 /* Observable.swift in Sources */,
 				B6D2675628A27F9C004E3BD6 /* Event.swift in Sources */,
 				B6D2674428A27ECB004E3BD6 /* ViewController.swift in Sources */,
+				B6D2677A28A7BDB7004E3BD6 /* DisposeBag.swift in Sources */,
 				B6D2676E28A793FA004E3BD6 /* Just.swift in Sources */,
 				B6D2674028A27ECB004E3BD6 /* AppDelegate.swift in Sources */,
 				B6D2674228A27ECB004E3BD6 /* SceneDelegate.swift in Sources */,
