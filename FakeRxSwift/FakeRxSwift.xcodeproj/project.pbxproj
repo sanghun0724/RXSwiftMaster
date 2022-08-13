@@ -18,6 +18,11 @@
 		B6D2675B28A29AB1004E3BD6 /* AnonymousDisposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D2675A28A29AB1004E3BD6 /* AnonymousDisposable.swift */; };
 		B6D2675D28A75365004E3BD6 /* CompositeDisposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D2675C28A75365004E3BD6 /* CompositeDisposable.swift */; };
 		B6D2675F28A7559C004E3BD6 /* NonDisposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D2675E28A7559C004E3BD6 /* NonDisposable.swift */; };
+		B6D2676228A755F0004E3BD6 /* ObserverType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D2676128A755F0004E3BD6 /* ObserverType.swift */; };
+		B6D2676428A75749004E3BD6 /* Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D2676328A75749004E3BD6 /* Observer.swift */; };
+		B6D2676728A75A3C004E3BD6 /* ObservableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D2676628A75A3C004E3BD6 /* ObservableType.swift */; };
+		B6D2676928A778A4004E3BD6 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D2676828A778A4004E3BD6 /* Observable.swift */; };
+		B6D2676C28A78024004E3BD6 /* Subscribe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D2676B28A78024004E3BD6 /* Subscribe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +39,11 @@
 		B6D2675A28A29AB1004E3BD6 /* AnonymousDisposable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnonymousDisposable.swift; sourceTree = "<group>"; };
 		B6D2675C28A75365004E3BD6 /* CompositeDisposable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositeDisposable.swift; sourceTree = "<group>"; };
 		B6D2675E28A7559C004E3BD6 /* NonDisposable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonDisposable.swift; sourceTree = "<group>"; };
+		B6D2676128A755F0004E3BD6 /* ObserverType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObserverType.swift; sourceTree = "<group>"; };
+		B6D2676328A75749004E3BD6 /* Observer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
+		B6D2676628A75A3C004E3BD6 /* ObservableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableType.swift; sourceTree = "<group>"; };
+		B6D2676828A778A4004E3BD6 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		B6D2676B28A78024004E3BD6 /* Subscribe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subscribe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,8 +92,9 @@
 		B6D2675328A27F55004E3BD6 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				B6D2676528A75A05004E3BD6 /* Observable  */,
+				B6D2676028A755E0004E3BD6 /* Observer */,
 				B6D2675728A280AB004E3BD6 /* Disposable */,
-				B6D2675528A27F9C004E3BD6 /* Event.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -91,6 +102,7 @@
 		B6D2675428A27F72004E3BD6 /* Operator */ = {
 			isa = PBXGroup;
 			children = (
+				B6D2676B28A78024004E3BD6 /* Subscribe.swift */,
 			);
 			path = Operator;
 			sourceTree = "<group>";
@@ -104,6 +116,25 @@
 				B6D2675E28A7559C004E3BD6 /* NonDisposable.swift */,
 			);
 			path = Disposable;
+			sourceTree = "<group>";
+		};
+		B6D2676028A755E0004E3BD6 /* Observer */ = {
+			isa = PBXGroup;
+			children = (
+				B6D2675528A27F9C004E3BD6 /* Event.swift */,
+				B6D2676128A755F0004E3BD6 /* ObserverType.swift */,
+				B6D2676328A75749004E3BD6 /* Observer.swift */,
+			);
+			path = Observer;
+			sourceTree = "<group>";
+		};
+		B6D2676528A75A05004E3BD6 /* Observable  */ = {
+			isa = PBXGroup;
+			children = (
+				B6D2676628A75A3C004E3BD6 /* ObservableType.swift */,
+				B6D2676828A778A4004E3BD6 /* Observable.swift */,
+			);
+			path = "Observable ";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,14 +208,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6D2676228A755F0004E3BD6 /* ObserverType.swift in Sources */,
+				B6D2676428A75749004E3BD6 /* Observer.swift in Sources */,
 				B6D2675928A280BF004E3BD6 /* DisposableProtocol.swift in Sources */,
 				B6D2675B28A29AB1004E3BD6 /* AnonymousDisposable.swift in Sources */,
+				B6D2676928A778A4004E3BD6 /* Observable.swift in Sources */,
 				B6D2675628A27F9C004E3BD6 /* Event.swift in Sources */,
 				B6D2674428A27ECB004E3BD6 /* ViewController.swift in Sources */,
 				B6D2674028A27ECB004E3BD6 /* AppDelegate.swift in Sources */,
 				B6D2674228A27ECB004E3BD6 /* SceneDelegate.swift in Sources */,
 				B6D2675D28A75365004E3BD6 /* CompositeDisposable.swift in Sources */,
 				B6D2675F28A7559C004E3BD6 /* NonDisposable.swift in Sources */,
+				B6D2676C28A78024004E3BD6 /* Subscribe.swift in Sources */,
+				B6D2676728A75A3C004E3BD6 /* ObservableType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
