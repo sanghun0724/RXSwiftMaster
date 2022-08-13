@@ -8,15 +8,17 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    let a: () -> Void = { }
     
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var b = a
-        print(b)
         self.view.backgroundColor = .red
+        
+        Observable.just(1)
+            .map{ $0 * 2 }
+            .subscribe(onNext: { print($0) })
+            .dispose(by: disposeBag)
     }
 
 
