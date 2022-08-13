@@ -24,6 +24,10 @@
 		B6D2676928A778A4004E3BD6 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D2676828A778A4004E3BD6 /* Observable.swift */; };
 		B6D2676C28A78024004E3BD6 /* Subscribe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D2676B28A78024004E3BD6 /* Subscribe.swift */; };
 		B6D2676E28A793FA004E3BD6 /* Just.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D2676D28A793FA004E3BD6 /* Just.swift */; };
+		B6D2677028A794C2004E3BD6 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D2676F28A794C2004E3BD6 /* Map.swift */; };
+		B6D2677228A7981E004E3BD6 /* MapThrowsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D2677128A7981E004E3BD6 /* MapThrowsError.swift */; };
+		B6D2677428A7995F004E3BD6 /* FlatMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D2677328A7995F004E3BD6 /* FlatMap.swift */; };
+		B6D2677628A7B814004E3BD6 /* CombineLatest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D2677528A7B814004E3BD6 /* CombineLatest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +50,10 @@
 		B6D2676828A778A4004E3BD6 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		B6D2676B28A78024004E3BD6 /* Subscribe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subscribe.swift; sourceTree = "<group>"; };
 		B6D2676D28A793FA004E3BD6 /* Just.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Just.swift; sourceTree = "<group>"; };
+		B6D2676F28A794C2004E3BD6 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
+		B6D2677128A7981E004E3BD6 /* MapThrowsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapThrowsError.swift; sourceTree = "<group>"; };
+		B6D2677328A7995F004E3BD6 /* FlatMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatMap.swift; sourceTree = "<group>"; };
+		B6D2677528A7B814004E3BD6 /* CombineLatest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineLatest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +114,10 @@
 			children = (
 				B6D2676B28A78024004E3BD6 /* Subscribe.swift */,
 				B6D2676D28A793FA004E3BD6 /* Just.swift */,
+				B6D2676F28A794C2004E3BD6 /* Map.swift */,
+				B6D2677128A7981E004E3BD6 /* MapThrowsError.swift */,
+				B6D2677328A7995F004E3BD6 /* FlatMap.swift */,
+				B6D2677528A7B814004E3BD6 /* CombineLatest.swift */,
 			);
 			path = Operator;
 			sourceTree = "<group>";
@@ -215,15 +227,19 @@
 				B6D2676428A75749004E3BD6 /* Observer.swift in Sources */,
 				B6D2675928A280BF004E3BD6 /* DisposableProtocol.swift in Sources */,
 				B6D2675B28A29AB1004E3BD6 /* AnonymousDisposable.swift in Sources */,
+				B6D2677628A7B814004E3BD6 /* CombineLatest.swift in Sources */,
 				B6D2676928A778A4004E3BD6 /* Observable.swift in Sources */,
 				B6D2675628A27F9C004E3BD6 /* Event.swift in Sources */,
 				B6D2674428A27ECB004E3BD6 /* ViewController.swift in Sources */,
 				B6D2676E28A793FA004E3BD6 /* Just.swift in Sources */,
 				B6D2674028A27ECB004E3BD6 /* AppDelegate.swift in Sources */,
 				B6D2674228A27ECB004E3BD6 /* SceneDelegate.swift in Sources */,
+				B6D2677028A794C2004E3BD6 /* Map.swift in Sources */,
 				B6D2675D28A75365004E3BD6 /* CompositeDisposable.swift in Sources */,
+				B6D2677428A7995F004E3BD6 /* FlatMap.swift in Sources */,
 				B6D2675F28A7559C004E3BD6 /* NonDisposable.swift in Sources */,
 				B6D2676C28A78024004E3BD6 /* Subscribe.swift in Sources */,
+				B6D2677228A7981E004E3BD6 /* MapThrowsError.swift in Sources */,
 				B6D2676728A75A3C004E3BD6 /* ObservableType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
