@@ -23,6 +23,7 @@
 		B6D2676728A75A3C004E3BD6 /* ObservableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D2676628A75A3C004E3BD6 /* ObservableType.swift */; };
 		B6D2676928A778A4004E3BD6 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D2676828A778A4004E3BD6 /* Observable.swift */; };
 		B6D2676C28A78024004E3BD6 /* Subscribe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D2676B28A78024004E3BD6 /* Subscribe.swift */; };
+		B6D2676E28A793FA004E3BD6 /* Just.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D2676D28A793FA004E3BD6 /* Just.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		B6D2676628A75A3C004E3BD6 /* ObservableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableType.swift; sourceTree = "<group>"; };
 		B6D2676828A778A4004E3BD6 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		B6D2676B28A78024004E3BD6 /* Subscribe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subscribe.swift; sourceTree = "<group>"; };
+		B6D2676D28A793FA004E3BD6 /* Just.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Just.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				B6D2676B28A78024004E3BD6 /* Subscribe.swift */,
+				B6D2676D28A793FA004E3BD6 /* Just.swift */,
 			);
 			path = Operator;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 				B6D2676928A778A4004E3BD6 /* Observable.swift in Sources */,
 				B6D2675628A27F9C004E3BD6 /* Event.swift in Sources */,
 				B6D2674428A27ECB004E3BD6 /* ViewController.swift in Sources */,
+				B6D2676E28A793FA004E3BD6 /* Just.swift in Sources */,
 				B6D2674028A27ECB004E3BD6 /* AppDelegate.swift in Sources */,
 				B6D2674228A27ECB004E3BD6 /* SceneDelegate.swift in Sources */,
 				B6D2675D28A75365004E3BD6 /* CompositeDisposable.swift in Sources */,
