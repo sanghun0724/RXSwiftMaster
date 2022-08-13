@@ -14,6 +14,9 @@
 		B6D2674928A27ECF004E3BD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6D2674828A27ECF004E3BD6 /* Assets.xcassets */; };
 		B6D2674C28A27ECF004E3BD6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6D2674A28A27ECF004E3BD6 /* LaunchScreen.storyboard */; };
 		B6D2675628A27F9C004E3BD6 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D2675528A27F9C004E3BD6 /* Event.swift */; };
+		B6D2675928A280BF004E3BD6 /* DisposableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D2675828A280BF004E3BD6 /* DisposableProtocol.swift */; };
+		B6D2675B28A29AB1004E3BD6 /* AnonymousDisposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D2675A28A29AB1004E3BD6 /* AnonymousDisposable.swift */; };
+		B6D2675D28A75365004E3BD6 /* CompositeDisposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D2675C28A75365004E3BD6 /* CompositeDisposable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		B6D2674B28A27ECF004E3BD6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B6D2674D28A27ECF004E3BD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6D2675528A27F9C004E3BD6 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		B6D2675828A280BF004E3BD6 /* DisposableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisposableProtocol.swift; sourceTree = "<group>"; };
+		B6D2675A28A29AB1004E3BD6 /* AnonymousDisposable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnonymousDisposable.swift; sourceTree = "<group>"; };
+		B6D2675C28A75365004E3BD6 /* CompositeDisposable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositeDisposable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +80,7 @@
 		B6D2675328A27F55004E3BD6 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				B6D2675728A280AB004E3BD6 /* Disposable */,
 				B6D2675528A27F9C004E3BD6 /* Event.swift */,
 			);
 			path = Base;
@@ -84,6 +91,16 @@
 			children = (
 			);
 			path = Operator;
+			sourceTree = "<group>";
+		};
+		B6D2675728A280AB004E3BD6 /* Disposable */ = {
+			isa = PBXGroup;
+			children = (
+				B6D2675828A280BF004E3BD6 /* DisposableProtocol.swift */,
+				B6D2675A28A29AB1004E3BD6 /* AnonymousDisposable.swift */,
+				B6D2675C28A75365004E3BD6 /* CompositeDisposable.swift */,
+			);
+			path = Disposable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,10 +174,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6D2675928A280BF004E3BD6 /* DisposableProtocol.swift in Sources */,
+				B6D2675B28A29AB1004E3BD6 /* AnonymousDisposable.swift in Sources */,
 				B6D2675628A27F9C004E3BD6 /* Event.swift in Sources */,
 				B6D2674428A27ECB004E3BD6 /* ViewController.swift in Sources */,
 				B6D2674028A27ECB004E3BD6 /* AppDelegate.swift in Sources */,
 				B6D2674228A27ECB004E3BD6 /* SceneDelegate.swift in Sources */,
+				B6D2675D28A75365004E3BD6 /* CompositeDisposable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
