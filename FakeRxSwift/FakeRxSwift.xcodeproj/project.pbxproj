@@ -28,6 +28,7 @@
 		B6D2677228A7981E004E3BD6 /* MapThrowsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D2677128A7981E004E3BD6 /* MapThrowsError.swift */; };
 		B6D2677428A7995F004E3BD6 /* FlatMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D2677328A7995F004E3BD6 /* FlatMap.swift */; };
 		B6D2677628A7B814004E3BD6 /* CombineLatest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D2677528A7B814004E3BD6 /* CombineLatest.swift */; };
+		B6D2677828A7BB88004E3BD6 /* Zip.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D2677728A7BB88004E3BD6 /* Zip.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		B6D2677128A7981E004E3BD6 /* MapThrowsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapThrowsError.swift; sourceTree = "<group>"; };
 		B6D2677328A7995F004E3BD6 /* FlatMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatMap.swift; sourceTree = "<group>"; };
 		B6D2677528A7B814004E3BD6 /* CombineLatest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineLatest.swift; sourceTree = "<group>"; };
+		B6D2677728A7BB88004E3BD6 /* Zip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zip.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				B6D2677128A7981E004E3BD6 /* MapThrowsError.swift */,
 				B6D2677328A7995F004E3BD6 /* FlatMap.swift */,
 				B6D2677528A7B814004E3BD6 /* CombineLatest.swift */,
+				B6D2677728A7BB88004E3BD6 /* Zip.swift */,
 			);
 			path = Operator;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 				B6D2677028A794C2004E3BD6 /* Map.swift in Sources */,
 				B6D2675D28A75365004E3BD6 /* CompositeDisposable.swift in Sources */,
 				B6D2677428A7995F004E3BD6 /* FlatMap.swift in Sources */,
+				B6D2677828A7BB88004E3BD6 /* Zip.swift in Sources */,
 				B6D2675F28A7559C004E3BD6 /* NonDisposable.swift in Sources */,
 				B6D2676C28A78024004E3BD6 /* Subscribe.swift in Sources */,
 				B6D2677228A7981E004E3BD6 /* MapThrowsError.swift in Sources */,
