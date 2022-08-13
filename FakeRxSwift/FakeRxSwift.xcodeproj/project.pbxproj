@@ -17,6 +17,7 @@
 		B6D2675928A280BF004E3BD6 /* DisposableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D2675828A280BF004E3BD6 /* DisposableProtocol.swift */; };
 		B6D2675B28A29AB1004E3BD6 /* AnonymousDisposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D2675A28A29AB1004E3BD6 /* AnonymousDisposable.swift */; };
 		B6D2675D28A75365004E3BD6 /* CompositeDisposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D2675C28A75365004E3BD6 /* CompositeDisposable.swift */; };
+		B6D2675F28A7559C004E3BD6 /* NonDisposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D2675E28A7559C004E3BD6 /* NonDisposable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		B6D2675828A280BF004E3BD6 /* DisposableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisposableProtocol.swift; sourceTree = "<group>"; };
 		B6D2675A28A29AB1004E3BD6 /* AnonymousDisposable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnonymousDisposable.swift; sourceTree = "<group>"; };
 		B6D2675C28A75365004E3BD6 /* CompositeDisposable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositeDisposable.swift; sourceTree = "<group>"; };
+		B6D2675E28A7559C004E3BD6 /* NonDisposable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonDisposable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 				B6D2675828A280BF004E3BD6 /* DisposableProtocol.swift */,
 				B6D2675A28A29AB1004E3BD6 /* AnonymousDisposable.swift */,
 				B6D2675C28A75365004E3BD6 /* CompositeDisposable.swift */,
+				B6D2675E28A7559C004E3BD6 /* NonDisposable.swift */,
 			);
 			path = Disposable;
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 				B6D2674028A27ECB004E3BD6 /* AppDelegate.swift in Sources */,
 				B6D2674228A27ECB004E3BD6 /* SceneDelegate.swift in Sources */,
 				B6D2675D28A75365004E3BD6 /* CompositeDisposable.swift in Sources */,
+				B6D2675F28A7559C004E3BD6 /* NonDisposable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
